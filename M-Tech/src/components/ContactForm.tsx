@@ -12,12 +12,21 @@ const ContactForm = () => {
           <div className="w-full max-w-lg">
             <div className="bg-gray-50 p-8 rounded-lg shadow-md">
               <div className="mb-8 text-center">
-                <svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto">
+                <svg
+                  width="120"
+                  height="80"
+                  viewBox="0 0 120 80"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="mx-auto"
+                >
                   <path d="M40 60L20 30L0 60H40Z" fill="#FFC107" />
                   <path d="M70 10L40 60H100L70 10Z" fill="#FF5722" />
                   <path d="M85 0L60 40H110L85 0Z" fill="#FF7043" />
                 </svg>
-                <h2 className="text-2xl font-bold text-blue-900 mt-4">Dhirubhai Ambani University</h2>
+                <h2 className="text-2xl font-bold text-blue-900 mt-4">
+                  Dhirubhai Ambani University
+                </h2>
               </div>
 
               <form className="space-y-4">
@@ -37,21 +46,20 @@ const ContactForm = () => {
                   />
                 </div>
 
-                <div className="flex space-x-2">
-                  <div className="w-1/3">
-                    <select className="w-full p-3 border rounded-md text-gray-400 bg-white">
-                      <option>IND(+91)</option>
-                      <option>USA(+1)</option>
-                      <option>UK(+44)</option>
-                    </select>
-                  </div>
-                  <div className="w-2/3">
-                    <Input
-                      type="tel"
-                      placeholder="12345 67890"
-                      className="w-full p-3 border rounded-md"
-                    />
-                  </div>
+                <div className="flex items-center border rounded-md overflow-hidden">
+                  <select className="appearance-none bg-white p-3 text-gray-400 outline-none">
+                    <option>IND(+91)</option>
+                    <option>USA(+1)</option>
+                    <option>UK(+44)</option>
+                  </select>
+                  <span className="px-2  text-gray-500">
+                    |
+                  </span>
+                  <input
+                    type="tel"
+                    placeholder="12345 67890"
+                    className="w-full p-3 outline-none"
+                  />
                 </div>
 
                 <div>

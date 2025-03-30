@@ -45,6 +45,7 @@ const LifeAtDAU = () => {
     );
   };
 
+  // Calculate visible indices for desktop view
   const visibleIndices = [0, 1, 2].map(
     (i) => (currentImage + i) % campusImages.length
   );
@@ -61,7 +62,8 @@ const LifeAtDAU = () => {
         </p>
 
         <div className="relative max-w-4xl mx-auto">
-          <div className="flex space-x-4">
+          {/* Desktop view: show three images */}
+          <div className="hidden md:flex space-x-4">
             {visibleIndices.map((index) => (
               <div
                 key={index}
@@ -73,6 +75,16 @@ const LifeAtDAU = () => {
                 />
               </div>
             ))}
+          </div>
+
+          {/* Mobile view: show single image */}
+          <div className="md:hidden">
+            <div className="h-80 bg-gray-200 rounded-lg overflow-hidden">
+              <FadeImage
+                src={campusImages[currentImage].src}
+                alt={campusImages[currentImage].alt}
+              />
+            </div>
           </div>
 
           {/* Navigation buttons */}
