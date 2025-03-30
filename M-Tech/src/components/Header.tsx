@@ -28,7 +28,7 @@ const Header = () => {
     setSidebarOpen((prev) => !prev);
   };
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId:string) => {
     const section = document.getElementById(sectionId);
     if (section) {
       // Close sidebar if open
@@ -46,7 +46,7 @@ const Header = () => {
       <header className={`bg-white p-4 sticky top-0 z-40 transition-shadow duration-300 ${
         hasScrolled ? 'shadow-md' : ''
       }`}>
-        <div className="container mx-auto flex justify-between items-center">
+        <div className="container mx-auto flex justify-between items-center text-center">
           {/* Left side with logo and accreditation - modified for mobile */}
           <div className="flex items-center justify-between flex-1 md:flex-none">
             <Link href="/" className="flex flex-col">
@@ -57,21 +57,11 @@ const Header = () => {
                 height={100}
                 className="mr-2"
               />
-              <p className="text-xs text-gray-600">formerly known as DA-IICT</p>
+              <p >Formerly known as </p>
+              <p className="text-bold text-center">DA-IICT</p>
             </Link>
 
             {/* Mobile accreditation - visible on all screens but styled differently */}
-            <div className="flex items-center ml-4">
-              <div className="flex flex-col items-center pr-3 border-r-2 border-blue-700">
-                <h2 className="text-red-600 text-xl md:text-3xl italic">25</h2>
-                <h3 className="text-xs md:text-sm">years</h3>
-              </div>
-              <div className="pl-3 text-left">
-                <div className="text-blue-900 text-xs md:text-sm">Accredited with</div>
-                <div className="text-amber-500 font-bold text-base md:text-xl">NAAC A+</div>
-                <div className="text-blue-900 text-xs md:text-sm">grade</div>
-              </div>
-            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -107,6 +97,17 @@ const Header = () => {
               Contact Us
             </button>
           </nav>
+            <div className="flex items-center ml-4">
+              <div className="flex flex-col items-center pr-3 border-r-2 border-blue-700">
+                <h2 className="text-red-600 text-xl md:text-3xl italic">25</h2>
+                <h3 className="text-xs md:text-sm">years</h3>
+              </div>
+              <div className="pl-3 text-left">
+                <div className="text-blue-900 text-xs md:text-sm">Accredited with</div>
+                <div className="text-amber-500 font-bold text-base md:text-xl">NAAC A+</div>
+                <div className="text-blue-900 text-xs md:text-sm">grade</div>
+              </div>
+            </div>
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden">

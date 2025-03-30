@@ -12,7 +12,7 @@ import SuccessStories from "@/components/SuccessStories";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+      <main className="min-h-screen bg-white">
       <Header />
       <section id="hero-section">
         <HeroSection />

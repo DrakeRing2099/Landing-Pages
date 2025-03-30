@@ -23,7 +23,7 @@ const SuccessStories: React.FC = () => {
         Under his leadership, the club has grown exponentially, hosting workshops, seminars, and events that empower members to share ideas and collaborate on projects. 
         Umang's commitment to nurturing talent and promoting a culture of learning has made the Business Club a cornerstone of the local business community, inspiring many to pursue their entrepreneurial dreams.
       `,
-      image: "/images/entrepreneur.jpg",
+      image: "/placement_1.jpeg",
     },
     Research: {
       title: "Dr. Aditi Sharma",
@@ -90,6 +90,7 @@ const SuccessStories: React.FC = () => {
               src={stories[activeTab].image}
               alt={stories[activeTab].title}
               fill
+              objectFit="cover"
               sizes="(max-width: 768px) 100vw, 50vw"
               className="rounded-lg object-cover"
               priority={activeTab === "Entrepreneur"}
