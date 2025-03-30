@@ -62,6 +62,17 @@ const Header = () => {
             </Link>
 
             {/* Mobile accreditation - visible on all screens but styled differently */}
+            <div className="flex items-center ml-4 md:pl-10">
+              <div className="flex flex-col items-center pr-3 border-r-2 border-blue-700">
+                <h2 className="text-red-600 text-xl md:text-3xl italic">25</h2>
+                <h3 className="text-xs md:text-sm">years</h3>
+              </div>
+              <div className="pl-3 text-left">
+                <div className="text-blue-900 text-xs md:text-sm">Accredited with</div>
+                <div className="text-amber-500 font-bold text-base md:text-xl">NAAC A+</div>
+                <div className="text-blue-900 text-xs md:text-sm">grade</div>
+              </div>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
