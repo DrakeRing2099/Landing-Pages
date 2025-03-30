@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 
 const PlacementStories = () => {
@@ -9,28 +10,28 @@ const PlacementStories = () => {
       position: "Software Engineer",
       company: "APPLE",
       lpa: "82 LPA",
-      image: "/images/umang.jpg",
+      image: "./placement_1.jpeg",
     },
     {
       name: "Sophie Liu",
       position: "Data Scientist",
       company: "GOOGLE",
       lpa: "90 LPA",
-      image: "/images/sophie.jpg",
+      image: "./placement_2.jpeg",
     },
     {
       name: "Ravi Patel",
       position: "Product Manager",
       company: "MICROSOFT",
       lpa: "85 LPA",
-      image: "/images/ravi.jpg",
+      image: "./placement_3.jpeg",
     },
     {
       name: "Aisha Khan",
       position: "UI Designer",
       company: "LINKEDIN",
       lpa: "75 LPA",
-      image: "/images/aisha.jpg",
+      image: "./placement_4.jpeg",
     },
   ];
 
@@ -54,22 +55,16 @@ const PlacementStories = () => {
               <div className="h-64 relative">
                 <div className="h-full bg-gray-200 w-full flex items-center justify-center">
                   {/* Placeholder for images */}
-                  <div className="text-gray-400 text-center">
-                    <svg
-                      className="w-16 h-16 mx-auto mb-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1}
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                      />
-                    </svg>
-                    <span className="text-sm">{person.name}</span>
+                  <div className="text-gray-400 text-center w-full h-full relative">
+                    <Image
+                      src={person.image}
+                      alt={person.name}
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                    {/* <span className="text-sm absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-75 px-2 py-1 rounded">
+                      {person.name}
+                    </span> */}
                   </div>
                 </div>
               </div>

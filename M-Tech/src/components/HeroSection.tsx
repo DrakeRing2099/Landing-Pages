@@ -70,7 +70,7 @@ const HeroSection = () => {
               <p className="text-gray-600">College for ICT</p>
             </div>
           </div>
-          <div className="border-gray-100 border-1">
+          <div className="border-gray-100 border-1 hidden md:block">
             <img src="/DAU_Logo.png" alt="DAU_logo" />
           </div>
         </div>

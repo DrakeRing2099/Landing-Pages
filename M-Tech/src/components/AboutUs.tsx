@@ -17,9 +17,9 @@ const AboutUs = () => {
               Writing effectively is an art. Start by using simple, everyday words people can easily understand. Be clear and direct to the point. Keep your thoughts flowing logically, and aim for brevity unless you're writing in-depth form.
             </p>
           </div>
-          <div className="md:w-1/3 relative min-h-[300px]">
-            <div className="relative w-full h-full">
-              <img src="./DAU_Logo.png" alt="" />
+          <div className="md:w-1/3 relative min-h-[300px] hidden md:block">
+            <div className="relative w-full h-full ">
+              <img src="./DAU_Logo.png" alt="DAU Logo" />
             </div>
           </div>
         </div>

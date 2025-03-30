@@ -1,66 +1,111 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  // Track scrolling to add shadow
+  useEffect(() => {
+    const handleScroll = () => {
+      // Add shadow after scrolling down a bit
+      if (window.scrollY > 20) {
+        setHasScrolled(true);
+      } else {
+        setHasScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleSidebar = () => {
     setSidebarOpen((prev) => !prev);
   };
 
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      // Close sidebar if open
+      if (isSidebarOpen) {
+        setSidebarOpen(false);
+      }
+      
+      // Smooth scroll to the section
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
-      <header className="bg-white p-4 shadow-sm">
+      <header className={`bg-white p-4 sticky top-0 z-40 transition-shadow duration-300 ${
+        hasScrolled ? 'shadow-md' : ''
+      }`}>
         <div className="container mx-auto flex justify-between items-center">
-          <Link href="/" className="flex flex-col items-center">
-            <Image
-              src="/DAU_header.png"
-              alt="Dhirubhai Ambani University"
-              width={120}
-              height={120}
-              className="mr-2 mt-2"
-            />
-            <div>
+          {/* Left side with logo and accreditation - modified for mobile */}
+          <div className="flex items-center justify-between flex-1 md:flex-none">
+            <Link href="/" className="flex flex-col">
+              <Image
+                src="/DAU_header.png"
+                alt="Dhirubhai Ambani University"
+                width={100}
+                height={100}
+                className="mr-2"
+              />
               <p className="text-xs text-gray-600">formerly known as DA-IICT</p>
+            </Link>
+
+            {/* Mobile accreditation - visible on all screens but styled differently */}
+            <div className="flex items-center ml-4">
+              <div className="flex flex-col items-center pr-3 border-r-2 border-blue-700">
+                <h2 className="text-red-600 text-xl md:text-3xl italic">25</h2>
+                <h3 className="text-xs md:text-sm">years</h3>
+              </div>
+              <div className="pl-3 text-left">
+                <div className="text-blue-900 text-xs md:text-sm">Accredited with</div>
+                <div className="text-amber-500 font-bold text-base md:text-xl">NAAC A+</div>
+                <div className="text-blue-900 text-xs md:text-sm">grade</div>
+              </div>
             </div>
-          </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link
-              href="/"
-              className="text-black hover:text-blue-700 font-medium"
+            <button
+              onClick={() => scrollToSection("hero-section")}
+              className="text-black hover:text-blue-700 font-medium cursor-pointer"
             >
               Home
-            </Link>
-            <Link
-              href="/admissions"
-              className="text-black hover:text-blue-700 font-medium"
+            </button>
+            <button
+              onClick={() => scrollToSection("top-recruiters")}
+              className="text-black hover:text-blue-700 font-medium cursor-pointer"
             >
-              Admissions
-            </Link>
-            <Link
-              href="/academics"
-              className="text-black hover:text-blue-700 font-medium"
+              Recruiters
+            </button>
+            <button
+              onClick={() => scrollToSection("top-faculty")}
+              className="text-black hover:text-blue-700 font-medium cursor-pointer"
             >
-              Academics
-            </Link>
-            <Link
-              href="/campus-life"
-              className="text-black hover:text-blue-700 font-medium"
+              Faculty
+            </button>
+            <button
+              onClick={() => scrollToSection("campus-culture")}
+              className="text-black hover:text-blue-700 font-medium cursor-pointer"
             >
               Campus Life
-            </Link>
-            <Link
-              href="/contact-us"
-              className="text-black hover:text-blue-700 font-medium"
+            </button>
+            <button
+              onClick={() => scrollToSection("contact-form")}
+              className="text-black hover:text-blue-700 font-medium cursor-pointer"
             >
               Contact Us
-            </Link>
+            </button>
           </nav>
 
           {/* Mobile Menu Toggle */}
@@ -72,18 +117,6 @@ const Header = () => {
                 <Menu className="h-8 w-8 text-black" />
               )}
             </button>
-          </div>
-
-          <div className="flex justify-between items-center gap-6">
-            <div className="flex flex-col px-4 py-4 border-r-2 border-blue-700">
-              <h2 className="text-red-600 text-3xl italic">25</h2>
-              <h3>years</h3>
-            </div>
-            <div className="text-left">
-              <div className="text-blue-900">Accredited with</div>
-              <div className="text-amber-500 font-bold text-xl">NAAC A+</div>
-              <div className="text-blue-900">grade</div>
-            </div>
           </div>
         </div>
       </header>
@@ -100,41 +133,36 @@ const Header = () => {
           </button>
         </div>
         <nav className="flex flex-col space-y-4 px-4">
-          <Link
-            href="/"
-            onClick={toggleSidebar}
-            className="text-black hover:text-blue-700 font-medium"
+          <button
+            onClick={() => scrollToSection("hero-section")}
+            className="text-black hover:text-blue-700 font-medium text-left"
           >
             Home
-          </Link>
-          <Link
-            href="/admissions"
-            onClick={toggleSidebar}
-            className="text-black hover:text-blue-700 font-medium"
+          </button>
+          <button
+            onClick={() => scrollToSection("top-recruiters")}
+            className="text-black hover:text-blue-700 font-medium text-left"
           >
-            Admissions
-          </Link>
-          <Link
-            href="/academics"
-            onClick={toggleSidebar}
-            className="text-black hover:text-blue-700 font-medium"
+            Recruiters
+          </button>
+          <button
+            onClick={() => scrollToSection("top-faculty")}
+            className="text-black hover:text-blue-700 font-medium text-left"
           >
-            Academics
-          </Link>
-          <Link
-            href="/campus-life"
-            onClick={toggleSidebar}
-            className="text-black hover:text-blue-700 font-medium"
+            Faculty
+          </button>
+          <button
+            onClick={() => scrollToSection("campus-culture")}
+            className="text-black hover:text-blue-700 font-medium text-left"
           >
             Campus Life
-          </Link>
-          <Link
-            href="/contact-us"
-            onClick={toggleSidebar}
-            className="text-black hover:text-blue-700 font-medium"
+          </button>
+          <button
+            onClick={() => scrollToSection("contact-form")}
+            className="text-black hover:text-blue-700 font-medium text-left"
           >
             Contact Us
-          </Link>
+          </button>
         </nav>
       </div>
 
@@ -150,4 +178,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header;  
