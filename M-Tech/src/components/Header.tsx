@@ -61,7 +61,7 @@ const Header = () => {
             </Link>
 
             {/* Mobile accreditation - visible on all screens but styled differently */}
-            <div className="flex items-center ml-4">
+            <div className="flex items-center ml-4 md:pl-10">
               <div className="flex flex-col items-center pr-3 border-r-2 border-blue-700">
                 <h2 className="text-red-600 text-xl md:text-3xl italic">25</h2>
                 <h3 className="text-xs md:text-sm">years</h3>

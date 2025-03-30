@@ -98,9 +98,9 @@ const NetworkBackground = () => {
       const points = pointsRef.current;
       const mouse = mouseRef.current;
 
-      // Update point positions
+      // Update point positions and draw them
       points.forEach((point, i) => {
-        // Add slight attraction to mouse position
+        // Attraction to mouse
         const dx = mouse.x - point.x;
         const dy = mouse.y - point.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -131,28 +131,32 @@ const NetworkBackground = () => {
         ctx.fillStyle = point.color;
         ctx.fill();
 
-        // Draw connections
-        ctx.strokeStyle = "#e0e0e0";
-        ctx.lineWidth = 0.5;
+        // Draw connections with a darker line and subtle shadow
         point.connections.forEach((j) => {
           if (j > i) {
-            // Only draw once
+            ctx.save();
+            // Set a darker stroke color and shadow for better contrast
+            ctx.strokeStyle = "rgba(0, 0, 0, 0.3)";
+            ctx.lineWidth = 0.5;
+            ctx.shadowColor = "rgba(0, 0, 0, 0.2)";
+            ctx.shadowBlur = 4;
             ctx.beginPath();
             ctx.moveTo(point.x, point.y);
             ctx.lineTo(points[j].x, points[j].y);
             ctx.stroke();
+            ctx.restore();
           }
         });
       });
 
-      // Find new connections
+      // Find new connections after moving points
       connectPoints();
 
       // Continue animation
       animationRef.current = requestAnimationFrame(draw);
     };
 
-    // Set up mouse move handler
+    // Mouse move handler
     const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
       mouseRef.current = {
@@ -161,7 +165,7 @@ const NetworkBackground = () => {
       };
     };
 
-    // Start drawing when component mounts
+    // Start drawing
     connectPoints();
     animationRef.current = requestAnimationFrame(draw);
     isDrawing.current = true;
