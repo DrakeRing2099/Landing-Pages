@@ -1,19 +1,27 @@
+"use client"
 import React from "react";
+import { motion } from "framer-motion";
 
-const TopRecruiters = () => {
-  const topCompanies = [
-    { name: "Apple", logo: "/AppleLogo.png", className: "w-28 h-10" },
-    { name: "Microsoft", logo: "/MicrosoftLogo.png", className: "w-28 h-10" },
-    { name: "Google", logo: "/GoogleLogo.png", className: "w-28 h-10" },
-    { name: "Amazon", logo: "/AmazonLogo.png", className: "w-28 h-10" },
-    { name: "Flipkart", logo: "/FlipkartLogo.png", className: "w-28 h-10" },
-    { name: "Airtel", logo: "/AirtelLogo.png", className: "w-28 h-10" },
-    { name: "Oracle", logo: "/OracleLogo.png", className: "w-28 h-10" },
-    { name: "Atlassian", logo: "/AtlassianLogo.png", className: "w-28 h-10" },
-    { name: "Deloitte", logo: "/DeloitteLogo.png", className: "w-28 h-10" },
-    { name: "LinkedIn", logo: "/LinkedInLogo.png", className: "w-28 h-10" },
-  ];
+interface Company {
+  name: string;
+  logo: string;
+  className: string;
+}
 
+const topCompanies: Company[] = [
+  { name: "Apple", logo: "/AppleLogo.png", className: "w-28 h-10" },
+  { name: "Microsoft", logo: "/MicrosoftLogo.png", className: "w-28 h-10" },
+  { name: "Google", logo: "/GoogleLogo.png", className: "w-28 h-10" },
+  { name: "Amazon", logo: "/AmazonLogo.png", className: "w-28 h-10" },
+  { name: "Flipkart", logo: "/FlipkartLogo.png", className: "w-28 h-10" },
+  { name: "Airtel", logo: "/AirtelLogo.png", className: "w-28 h-10" },
+  { name: "Oracle", logo: "/OracleLogo.png", className: "w-28 h-10" },
+  { name: "Atlassian", logo: "/AtlassianLogo.png", className: "w-28 h-10" },
+  { name: "Deloitte", logo: "/DeloitteLogo.png", className: "w-28 h-10" },
+  { name: "LinkedIn", logo: "/LinkedInLogo.png", className: "w-28 h-10" },
+];
+
+const TopRecruiters: React.FC = () => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto">
@@ -25,19 +33,26 @@ const TopRecruiters = () => {
           placements
         </p>
 
-        {/* Combined grid with all companies */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
           {topCompanies.map((company, index) => (
-            <div
+            <motion.div
               key={index}
-              className="border rounded-lg p-4 flex items-center justify-center h-24 transition transform duration-300 hover:scale-105"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }} // delay only in the initial animation
+              whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.3, delay: 0 }, // no delay on hover animation
+              }}
+              className="border rounded-lg p-4 flex items-center justify-center h-24"
             >
               <img
                 src={company.logo}
                 alt={company.name}
                 className={`${company.className} object-contain`}
               />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

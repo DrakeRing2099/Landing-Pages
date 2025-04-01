@@ -1,18 +1,27 @@
-'use client';
+"use client";
 
 import { Button } from "@/components/ui/button";
 import NetworkBackground from "./NetworkBackground";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
     <section className="relative bg-white py-12 overflow-hidden">
+      {/* NetworkBackground remains unanimated */}
       <div className="absolute inset-0" style={{ height: "600px" }}>
         <NetworkBackground />
       </div>
 
       <div className="container mx-auto relative z-10">
-        <div className="py-16 text-center">
+        {/* Animated text content */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          className="py-16 text-center"
+        >
           <div className="bg-red-600 text-white py-2 px-4 mb-8 mx-auto max-w-md rounded-md">
             ADMISSION OPEN FROM 29TH MAY
           </div>
@@ -44,36 +53,86 @@ const HeroSection = () => {
               </Button>
             </Link>
           </div>
-        </div>
-        <div>
-          <img src="./Path.png" alt="" />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        </motion.div>
+
+        {/* Animated image */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="my-8"
+        >
+          <img src="./Path.png" alt="Decorative Path" />
+        </motion.div>
+
+        {/* Animated grid with statistic cards and logo */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={{
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { staggerChildren: 0.1, duration: 0.5 },
+            },
+            hidden: { opacity: 0, y: 20 },
+          }}
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
-            <div className="bg-white p-6 shadow-md rounded-md transition transform duration-300 hover:scale-105 hover:shadow-lg">
-              <h3 className="text-3xl font-bold text-blue-900">25 Years</h3>
-              <p className="text-gray-600">in Academics</p>
-            </div>
-
-            <div className="bg-red-600 text-white p-6 shadow-md rounded-md transition transform duration-300 hover:scale-105 hover:shadow-lg">
-              <h3 className="text-3xl font-bold">80 LPA</h3>
-              <p>Highest Placement</p>
-            </div>
-
-            <div className="bg-white p-6 shadow-md rounded-md transition transform duration-300 hover:scale-105 hover:shadow-lg">
-              <h3 className="text-3xl font-bold text-blue-900">50 Acres</h3>
-              <p className="text-gray-600">of campus</p>
-            </div>
-
-            <div className="bg-white p-6 shadow-md rounded-md transition transform duration-300 hover:scale-105 hover:shadow-lg">
-              <h3 className="text-3xl font-bold text-blue-900">No. 1</h3>
-              <p className="text-gray-600">College for ICT</p>
-            </div>
+            {[
+              {
+                title: "25 Years",
+                subtitle: "in Academics",
+                bg: "bg-white",
+                text: "text-blue-900",
+              },
+              {
+                title: "80 LPA",
+                subtitle: "Highest Placement",
+                bg: "bg-red-600",
+                text: "text-white",
+              },
+              {
+                title: "50 Acres",
+                subtitle: "of campus",
+                bg: "bg-white",
+                text: "text-blue-900",
+              },
+              {
+                title: "No. 1",
+                subtitle: "College for ICT",
+                bg: "bg-white",
+                text: "text-blue-900",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                // Hover animation without delay
+                whileHover={{ scale: 1.05, transition: { duration: 0 } }}
+                className={`${item.bg} ${item.text} p-6 shadow-md rounded-md transition transform duration-300 hover:shadow-lg`}
+              >
+                <h3 className="text-3xl font-bold">{item.title}</h3>
+                <p className={index === 1 ? "" : "text-gray-600"}>
+                  {item.subtitle}
+                </p>
+              </motion.div>
+            ))}
           </div>
-          <div className="border-gray-100 border-1 hidden md:block">
-            <img src="/DAU_Logo.png" alt="DAU_logo" />
-          </div>
-        </div>
+
+          {/* Animated DAU Logo */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+            className="border-gray-100 border hidden md:block"
+          >
+            <img src="/DAU_Logo.png" alt="DAU Logo" />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
