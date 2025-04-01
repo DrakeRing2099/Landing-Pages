@@ -19,7 +19,7 @@ const HeroSection = () => {
       className="object-cover"
     />
   </div>
-  
+
       <div className="container mx-auto relative z-10 pb-48">
         {/* Animated text content */}
         <motion.div
@@ -30,11 +30,11 @@ const HeroSection = () => {
           className="py-16 text-center"
         >
           <div className="bg-red-600 text-white py-2 px-4 mb-8 mx-auto max-w-md rounded-md">
-            ADMISSION OPEN FROM 29TH MAY
+            ADMISSION OPEN FROM 23rd MAY
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
-            M.Sc. In IT
+            M.S
             <br />
             (Information Technology)
           </h1>
