@@ -16,7 +16,6 @@ const nextConfig = {
   },
   
   output: undefined,
-  distDir: 'out',
   images: {
     unoptimized: true,
     domains: [
