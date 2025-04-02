@@ -70,12 +70,9 @@ const ContactForm = () => {
     setShowConfirmation(false);
 
     try {
-      
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
 
@@ -85,7 +82,7 @@ const ContactForm = () => {
         throw new Error(`Failed to submit form: ${responseData.error || response.statusText}`);
       }
 
-      // Clear form data after successful submission
+      // Form submitted successfully - clear form data
       setFormData({
         name: '',
         email: '',
@@ -94,26 +91,23 @@ const ContactForm = () => {
         state: ''
       });
 
-      setSubmitMessage({ 
-        text: `Form submitted successfully!`, 
-        isError: false 
-      });
+      // Set success message based on where data was saved
+      let successMessage = 'Form submitted successfully!';
+      if (responseData.savedToSheets) {
+        console.log("Data was saved to Google Sheets!");
+      }
+
+      setSubmitMessage({ text: successMessage, isError: false });
       
-      // Show confirmation panel or modal for non-popup form
+      // Show confirmation for non-popup form
       if (!isPopup) {
         setShowConfirmation(true);
-        
-        // Auto-hide confirmation after 5 seconds
-        setTimeout(() => {
-          setShowConfirmation(false);
-        }, 3000);
+        setTimeout(() => setShowConfirmation(false), 8000);
       }
       
+      // Close popup form if needed
       if (isPopup) {
-        // Close popup after successful submission with a delay
-        setTimeout(() => {
-          setIsPopupOpen(false);
-        }, 2000);
+        setTimeout(() => setIsPopupOpen(false), 2000);
       }
     } catch (error) {
       console.error("Form submission error:", error);
