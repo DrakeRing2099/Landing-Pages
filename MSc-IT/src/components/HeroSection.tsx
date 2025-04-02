@@ -1,24 +1,37 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import NetworkBackground from "./NetworkBackground";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-
 const HeroSection = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      // Close sidebar if open
+      if (isSidebarOpen) {
+        setSidebarOpen(false);
+      }
+
+      // Smooth scroll to the section
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <section className="relative bg-white py-12 overflow-hidden">
-  {/* Shift the background image down by 100px */}
-  <div className="absolute left-0 right-0 top-[300px] h-[600px]">
-    <Image
-      src="/Frame 187.png"
-      alt="Background"
-      fill
-      className="object-cover"
-    />
-  </div>
+      {/* Shift the background image down by 100px */}
+      <div className="absolute left-0 right-0 top-[300px] h-[600px]">
+        <Image
+          src="/Frame 187.png"
+          alt="Background"
+          fill
+          className="object-cover"
+        />
+      </div>
 
       <div className="container mx-auto relative z-10 pb-48">
         {/* Animated text content */}
@@ -34,24 +47,27 @@ const HeroSection = () => {
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
-            M.S
+            M.Sc. in IT
             <br />
             (Information Technology)
           </h1>
 
           <p className="text-lg text-gray-700 mb-10 max-w-3xl mx-auto text-center">
-           Elavate your IT career with DAU's cutting-edge MSc. IT program. 
-           This dynamic two-year course fuses innovation, hands-on-labs, and industry-driven learning.
-           Master software development, system design, and analytics while gaining real world experience through a semester-long internship.
-           Get future-ready and thrive in the fast-paced tech world!
-           </p>
+            Elavate your IT career with DAU's cutting-edge MSc. IT program. This
+            dynamic two-year course fuses innovation, hands-on-labs, and
+            industry-driven learning. Master software development, system
+            design, and analytics while gaining real world experience through a
+            semester-long internship. Get future-ready and thrive in the
+            fast-paced tech world!
+          </p>
 
           <div className="flex justify-center gap-4">
-            <Link href="/apply">
-              <Button className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-6 text-lg rounded-md">
-                Apply Now
-              </Button>
-            </Link>
+            <Button
+              onClick={() => scrollToSection("contact-form")}
+              className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-6 text-lg rounded-md"
+            >
+              Apply Now
+            </Button>
             <Link href="/learn-more">
               <Button
                 variant="outline"
@@ -65,16 +81,16 @@ const HeroSection = () => {
 
         {/* Animated image */}
         <div className="mt-0 md:mt-[300px]">
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.5 }}
-    transition={{ duration: 0.5, delay: 0.2 }}
-    className="my-8"
-  >
-    <img src="./Path.png" alt="Decorative Path" />
-  </motion.div>
-</div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="my-8"
+          >
+            <img src="./Path.png" alt="Decorative Path" />
+          </motion.div>
+        </div>
         {/* Animated grid with statistic cards and logo */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-8"

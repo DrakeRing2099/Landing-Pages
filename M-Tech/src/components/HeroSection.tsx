@@ -1,11 +1,26 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import NetworkBackground from "./NetworkBackground";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      // Close sidebar if open
+      if (isSidebarOpen) {
+        setSidebarOpen(false);
+      }
+
+      // Smooth scroll to the section
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <section className="relative bg-white py-12 overflow-hidden">
       {/* NetworkBackground remains unanimated */}
@@ -39,11 +54,11 @@ const HeroSection = () => {
           </p>
 
           <div className="flex justify-center gap-4">
-            <Link href="/apply">
-              <Button className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-6 text-lg rounded-md">
-                Apply Now
-              </Button>
-            </Link>
+            <Button
+            onClick={() => scrollToSection("contact-form")}
+            className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-6 text-lg rounded-md">
+              Apply Now
+            </Button>
             <Link href="/learn-more">
               <Button
                 variant="outline"
