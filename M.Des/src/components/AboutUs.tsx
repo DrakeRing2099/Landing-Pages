@@ -6,7 +6,7 @@ const AboutUs = () => {
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row gap-12">
           <div className="md:w-2/3">
-            <h2 className="text-3xl font-bold text-blue-900 mb-8">ABOUT US</h2>
+            <h2 className="text-4xl font-bold text-blue-900 mb-8">ABOUT US</h2>
             <p className="text-gray-700 mb-4">
               Founded in 2000, DA-IICT has been a pioneer in ICT education and research. With expert faculty and a strong curriculum, it has shaped future-ready professionals for over two decades.
             </p>

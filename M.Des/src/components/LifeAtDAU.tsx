@@ -64,7 +64,7 @@ const LifeAtDAU = () => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-blue-900 text-center mb-4">
+        <h2 className="text-5xl font-bold text-blue-900 text-center mb-4">
           Life at DAU
         </h2>
         <p className="text-gray-600 text-center mb-12">

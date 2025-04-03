@@ -7,7 +7,7 @@ const CampusCulture = () => {
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row gap-12">
           <div className="md:w-1/2">
-            <h2 className="text-3xl font-bold text-blue-900 mb-8">
+            <h2 className="text-4xl font-bold text-blue-900 mb-8">
               Campus Culture
             </h2>
             <p className="text-gray-700 mb-4">

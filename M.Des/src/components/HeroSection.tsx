@@ -33,7 +33,7 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="container mx-auto relative z-10 pb-48">
+      <div className="container mx-auto relative z-10 pb-4 md:mt-16">
         {/* Animated text content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,7 +44,7 @@ const HeroSection = () => {
         >
           
 
-          <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
+          <h1 className="text-3xl md:text-5xl font-bold text-blue-900 mb-4">
             Master of Design (M.Des)
           </h1>
 
@@ -73,9 +73,9 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Animated image */}
-        <div className="mt-0 md:mt-[300px]">
+        <div className="mt-[100px] md:mt-[300px]">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0.5, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -100,47 +100,47 @@ const HeroSection = () => {
             hidden: { opacity: 0, y: 20 },
           }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
-            {[
-              {
-                title: "25 Years",
-                subtitle: "in Academics",
-                bg: "bg-white",
-                text: "text-blue-900",
-              },
-              {
-                title: "80 LPA",
-                subtitle: "Highest Placement",
-                bg: "bg-red-600",
-                text: "text-white",
-              },
-              {
-                title: "50 Acres",
-                subtitle: "of campus",
-                bg: "bg-white",
-                text: "text-blue-900",
-              },
-              {
-                title: "No. 1",
-                subtitle: "College for ICT",
-                bg: "bg-white",
-                text: "text-blue-900",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05, transition: { duration: 0 } }}
-                className={`$p-6 shadow-md rounded-md transition transform duration-300 hover:shadow-lg bg-gray-100 hover:bg-red-600 group`}
-              >
-                <h3 className="text-3xl font-bold text-black group-hover:text-white">
-                  {item.title}
-                </h3>
-                <p className="text-black group-hover:text-white">
-                  {item.subtitle}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+              {[
+                {
+                  title: "25 Years",
+                  subtitle: "in Academics",
+                  bg: "bg-white",
+                  text: "text-blue-900",
+                },
+                {
+                  title: "80 LPA",
+                  subtitle: "Highest Placement",
+                  bg: "bg-red-600",
+                  text: "text-white",
+                },
+                {
+                  title: "50 Acres",
+                  subtitle: "of campus",
+                  bg: "bg-white",
+                  text: "text-blue-900",
+                },
+                {
+                  title: "No. 1",
+                  subtitle: "College for ICT",
+                  bg: "bg-white",
+                  text: "text-blue-900",
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05, transition: { duration: 0 } }}
+                  className={`p-6 shadow-md rounded-md transition transform duration-300 hover:shadow-lg bg-gray-100 hover:bg-red-600 group`}
+                >
+                  <h3 className="text-3xl font-bold text-black group-hover:text-white">
+                    {item.title}
+                  </h3>
+                  <p className="text-black group-hover:text-white">
+                    {item.subtitle}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
 
           {/* Animated DAU Logo */}
           <motion.div
@@ -148,7 +148,7 @@ const HeroSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5 }}
-            className="border-gray-100 border hidden md:block"
+            className=" hidden md:block"
           >
             <img src="/DAU_Logo.png" alt="DAU Logo" />
           </motion.div>

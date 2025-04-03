@@ -33,7 +33,7 @@ const SuccessStories: React.FC = () => {
         Her research has been published in top-tier journals and has influenced the development of cutting-edge AI technologies.
         Dr. Sharma's dedication to mentoring students and fostering innovation has made her a respected figure in the academic and tech communities.
       `,
-      image: "/images/research.jpg",
+      image: "/placement_2.jpeg",
     },
     Placement: {
       title: "Ravi Patel",
@@ -43,15 +43,25 @@ const SuccessStories: React.FC = () => {
         His journey at DAU equipped him with the skills and knowledge to excel in the competitive tech industry. 
         Ravi credits his success to the university's robust curriculum, experienced faculty, and hands-on learning opportunities.
       `,
-      image: "/images/placement.jpg",
+      image: "/placement_3.jpeg",
+    },
+    Other: {
+      title: "Ravi Patel",
+      subtitle: "Placed at Microsoft",
+      description: `
+        Ravi Patel, a recent graduate, secured a prestigious position at Microsoft as a Product Manager. 
+        His journey at DAU equipped him with the skills and knowledge to excel in the competitive tech industry. 
+        Ravi credits his success to the university's robust curriculum, experienced faculty, and hands-on learning opportunities.
+      `,
+      image: "/placement_4.jpeg",
     },
   };
 
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-blue-900 text-center mb-4">
-          Success Stories
+        <h2 className="text-5xl font-bold text-blue-900 text-center mb-4">
+          Alumini Achievements
         </h2>
         <p className="text-gray-600 text-center mb-12">
           Instructors around the world teach millions of participants on Navarin. We provide the tools and skills.
