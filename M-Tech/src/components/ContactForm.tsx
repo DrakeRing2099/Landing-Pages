@@ -35,7 +35,7 @@ const ContactForm = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsPopupOpen(true);
-    }, 3000); // Shows popup after 3 seconds
+    }, 0); // Shows popup after 3 seconds
 
     return () => clearTimeout(timer);
   }, []);
