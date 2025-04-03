@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
 async function addToGoogleSheetViaAppScript(formData: any) {
   try {
     // Your Apps Script Web App URL (already working)
-    const response = await fetch("https://script.google.com/macros/s/AKfycbyGzmIjGIeusrYWjNmstIfU50UVULSZsXf0H90xZCDlaZf7z_S-0L8XWaQMvETZMBVtkA/exec", {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbx7a6JTOmXFJQHRwaRNd-CzSs53ilDkeHTDCZZ5YJSDy4AE4jVtI5LT6VU7hEZEB8l_-Q/exec", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -76,7 +76,8 @@ async function addToGoogleSheetViaAppScript(formData: any) {
         email: formData.email || '',
         phone: formData.phone || '',
         countryCode: formData.countryCode || '',
-        state: formData.state || ''
+        state: formData.state || '',
+        source: "MDES", // Add source information
       }),
     });
     
