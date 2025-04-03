@@ -15,7 +15,7 @@ const HeroSectionMscDS = () => {
       <Image
         src="/g18.png" // top wave image
         alt="Top Wave"
-        fill
+        layout="fill"
         className="object-contain object-top"
       />
     </div>
@@ -25,7 +25,7 @@ const HeroSectionMscDS = () => {
       <Image
         src="/g282.png" // bottom wave image
         alt="Bottom Wave"
-        fill
+        layout="fill"
         className="object-contain object-bottom"
       />
     </div>

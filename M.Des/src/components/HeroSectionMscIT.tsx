@@ -15,7 +15,7 @@ const HeroSectionMscIT = () => {
     <Image
       src="/Frame 187.png"
       alt="Background"
-      fill
+      layout="fill"
       className="object-cover"
     />
   </div>

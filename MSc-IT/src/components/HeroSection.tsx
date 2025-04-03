@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const HeroSection = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -28,7 +28,7 @@ const HeroSection = () => {
         <Image
           src="/Frame 187.png"
           alt="Background"
-          fill
+          layout="fill"
           className="object-cover"
         />
       </div>

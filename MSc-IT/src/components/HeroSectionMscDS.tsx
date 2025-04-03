@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import NetworkBackground from "./NetworkBackground";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 
 const HeroSectionMscDS = () => {
@@ -15,7 +15,7 @@ const HeroSectionMscDS = () => {
       <Image
         src="/g18.png" // top wave image
         alt="Top Wave"
-        fill
+        layout="fill"
         className="object-contain object-top"
       />
     </div>
@@ -25,7 +25,7 @@ const HeroSectionMscDS = () => {
       <Image
         src="/g282.png" // bottom wave image
         alt="Bottom Wave"
-        fill
+        layout="fill"
         className="object-contain object-bottom"
       />
     </div>

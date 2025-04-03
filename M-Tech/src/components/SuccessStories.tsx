@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 interface Story {
   title: string;
@@ -99,7 +99,7 @@ const SuccessStories: React.FC = () => {
             <Image
               src={stories[activeTab].image}
               alt={stories[activeTab].title}
-              fill
+              layout="fill"
               objectFit="cover"
               sizes="(max-width: 768px) 100vw, 50vw"
               className="rounded-lg object-cover"
