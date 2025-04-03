@@ -13,7 +13,7 @@ const topCompanies: Company[] = [
   { name: "Microsoft", logo: "/MicrosoftLogo.png", className: "w-28 h-10" },
   { name: "Google", logo: "/GoogleLogo.png", className: "w-28 h-10" },
   { name: "Amazon", logo: "/AmazonLogo.png", className: "w-28 h-10" },
-  { name: "Flipkart", logo: "/FlipkartLogo.png", className: "w-28 h-10" },
+  { name: "Flipkart", logo: "/FlipKartLogo.png", className: "w-28 h-10" },
   { name: "Airtel", logo: "/AirtelLogo.png", className: "w-28 h-10" },
   { name: "Oracle", logo: "/OracleLogo.png", className: "w-28 h-10" },
   { name: "Atlassian", logo: "/AtlassianLogo.png", className: "w-28 h-10" },

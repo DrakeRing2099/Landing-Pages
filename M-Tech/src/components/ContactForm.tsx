@@ -179,8 +179,6 @@ const ContactForm = () => {
                                         onChange={handleInputChange}
                                     >
                                         <option>INR(+91)</option>
-                                        <option>USA(+1)</option>
-                                        <option>UK(+44)</option>
                                     </select>
                                     <span className="px-2 text-gray-500">|</span>
                                     <Input
@@ -327,8 +325,6 @@ const ContactForm = () => {
                                     onChange={handleInputChange}
                                 >
                                     <option>INR(+91)</option>
-                                    <option>USA(+1)</option>
-                                    <option>UK(+44)</option>
                                 </select>
                                 <span className="px-2 text-gray-500">|</span>
                                 <Input
