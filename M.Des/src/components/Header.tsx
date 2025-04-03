@@ -75,7 +75,7 @@ const Header = () => {
               onClick={() => scrollToSection("top-recruiters")}
               className="text-black hover:text-blue-700 font-medium cursor-pointer"
             >
-              Recruiters
+              Career
             </button>
             <button
               onClick={() => scrollToSection("top-faculty")}
@@ -143,7 +143,7 @@ const Header = () => {
             onClick={() => scrollToSection("top-recruiters")}
             className="text-black hover:text-blue-700 font-medium text-left"
           >
-            Recruiters
+            Career
           </button>
           <button
             onClick={() => scrollToSection("top-faculty")}

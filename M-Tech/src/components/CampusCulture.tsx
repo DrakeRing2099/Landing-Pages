@@ -11,19 +11,15 @@ const CampusCulture = () => {
               Campus Culture
             </h2>
             <p className="text-gray-700 mb-4">
-              Discover the transformative journey of our students through their
-              testimonials. These stories speak to the impact our courses have
-              had on their professional and personal lives.
+            Dhirubhai Ambani University  offers a vibrant campus culture where academics and extracurriculars thrive. 
+            Student-led clubs, technical fests, and cultural events foster creativity and collaboration.
             </p>
             <p className="text-gray-700 mb-4">
-              Discover the transformative journey of our students through their
-              testimonials. These stories speak to the impact our courses have
-              had on their professional and personal lives.
+            From music and dance to robotics and coding, Dhirubhai Ambani University ensures every student finds their passion. 
+            Workshops, hackathons, and sports tournaments keep the campus dynamic.
             </p>
             <p className="text-gray-700">
-              Discover the transformative journey of our students through their
-              testimonials. These stories speak to the impact our courses have
-              had on their professional and personal lives.
+            With top-notch facilities and lively festivals, Dhirubhai Ambani University nurtures friendships, leadership, and personal growth in a welcoming environment.
             </p>
           </div>
           <div className="md:w-1/2">
