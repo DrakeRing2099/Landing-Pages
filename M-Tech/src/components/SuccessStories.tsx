@@ -33,7 +33,7 @@ const SuccessStories: React.FC = () => {
         Her research has been published in top-tier journals and has influenced the development of cutting-edge AI technologies.
         Dr. Sharma's dedication to mentoring students and fostering innovation has made her a respected figure in the academic and tech communities.
       `,
-      image: "/images/research.jpg",
+      image: "/placement_2.jpeg",
     },
     Placement: {
       title: "Ravi Patel",
@@ -43,7 +43,17 @@ const SuccessStories: React.FC = () => {
         His journey at DAU equipped him with the skills and knowledge to excel in the competitive tech industry. 
         Ravi credits his success to the university's robust curriculum, experienced faculty, and hands-on learning opportunities.
       `,
-      image: "/images/placement.jpg",
+      image: "/placement_3.jpeg",
+    },
+    Other: {
+      title: "Ravi Patel",
+      subtitle: "Placed at Microsoft",
+      description: `
+        Ravi Patel, a recent graduate, secured a prestigious position at Microsoft as a Product Manager. 
+        His journey at DAU equipped him with the skills and knowledge to excel in the competitive tech industry. 
+        Ravi credits his success to the university's robust curriculum, experienced faculty, and hands-on learning opportunities.
+      `,
+      image: "/placement_4.jpeg",
     },
   };
 
