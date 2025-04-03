@@ -45,9 +45,6 @@ const HeroSection = () => {
                     transition={{ duration: 0.5 }}
                     className="py-16 text-center"
                 >
-                    {/*<div className="bg-red-600 text-white py-2 px-4 mb-8 mx-auto max-w-md rounded-md">
-            ADMISSION OPEN FROM 29TH MAY
-          </div>*/}
 
                     <h1 className="text-4xl md:text-5xl font-bold mb-4">
                         M.Tech. in (ICT) (Information
@@ -74,7 +71,13 @@ const HeroSection = () => {
                         </Button>
                     </div>
                 </motion.div>
-                <div className="bg-white p-6 rounded-lg  text-center mt-20">
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.5 }}
+                    className="bg-white p-6 rounded-lg text-center mt-20"
+                >
                     <h2 className="text-2xl font-semibold mb-16">
                         Specializations offered under{" "}
                         <span className="bg-gradient-to-r from-[#EF4023] to-[#FCBB4D] text-white px-4 py-1 rounded-lg">
@@ -82,20 +85,23 @@ const HeroSection = () => {
                         </span>
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="border-l-[1px] border-r-[1px] border-b-[1px] border-[#EF4023] p-4 rounded-lg hover:shadow-lg shadow-md">
-                            Machine Learning (ML)
-                        </div>
-                        <div className="border-l-[1px] border-r-[1px] border-b-[1px] border-[#EF4023] p-4 rounded-lg hover:shadow-lg shadow-md">
-                            VLSI and Embedded Systems (VLSI & ES)
-                        </div>
-                        <div className="border-l-[1px] border-r-[1px] border-b-[1px] border-[#EF4023] p-4 rounded-lg hover:shadow-lg shadow-md">
-                            Software Systems (SS)
-                        </div>
-                        <div className="border-l-[1px] border-r-[1px] border-b-[1px] border-[#EF4023] p-4 rounded-lg hover:shadow-lg shadow-md">
-                            Wireless Communication and Signal Processing (WCSP)
-                        </div>
+                        {[
+                            "Machine Learning (ML)",
+                            "VLSI and Embedded Systems (VLSI & ES)",
+                            "Software Systems (SS)",
+                            "Wireless Communication and Signal Processing (WCSP)"
+                        ].map((specialization, index) => (
+                            <motion.div
+                                key={index}
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ duration: 0.2 }}
+                                className="border-l-[1px] border-r-[1px] border-b-[1px] border-[#EF4023] p-4 rounded-lg shadow-md bg-gray-100 hover:bg-red-600 group"
+                            >
+                                <span className="group-hover:text-white">{specialization}</span>
+                            </motion.div>
+                        ))}
                     </div>
-                </div>
+                </motion.div>
                 {/* Animated image */}
                 <motion.div
                     initial={{ opacity: 0.5, y: 20 }}

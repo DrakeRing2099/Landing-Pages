@@ -4,7 +4,11 @@ import "./globals.css";
 import ClientBody from "./ClientBody";
 import { ContactFormProvider } from "@/contexts/ContactFormContext";
 
-const dmSans = DM_Sans({ subsets: ["latin"] });
+const dmSans = DM_Sans({ 
+  subsets: ["latin"],
+  display: 'swap',
+  preload: true,
+});
 
 export const metadata: Metadata = {
     title: "Dhirubhai Ambani University",
