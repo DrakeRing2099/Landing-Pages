@@ -4,6 +4,7 @@ import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
+import { useContactFormContext } from '@/contexts/ContactFormContext';
 
 interface FormData {
     name: string;
@@ -19,7 +20,7 @@ interface SubmitMessage {
 }
 
 const ContactForm = () => {
-    const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
+    const { isPopupOpen, setIsPopupOpen } = useContactFormContext();
     const [formData, setFormData] = useState<FormData>({
         name: '',
         email: '',

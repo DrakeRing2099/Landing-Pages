@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import NetworkBackground from "./NetworkBackground";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useContactFormContext } from "@/contexts/ContactFormContext";
 
 const HeroSection = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const { setIsPopupOpen } = useContactFormContext();
 
     const scrollToSection = (sectionId: string) => {
         const section = document.getElementById(sectionId);
@@ -21,6 +23,12 @@ const HeroSection = () => {
             section.scrollIntoView({ behavior: "smooth" });
         }
     };
+
+    const handleApplyNow = () => {
+        // Open the popup contact form instead of scrolling
+        setIsPopupOpen(true);
+    };
+    
     return (
       <section className="relative bg-white py-12 overflow-hidden">
         {/* NetworkBackground remains unanimated */}
@@ -59,7 +67,7 @@ const HeroSection = () => {
 
             <div className="flex justify-center gap-4">
               <Button
-                onClick={() => scrollToSection("contact-form")}
+                onClick={handleApplyNow}
                 className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-6 text-lg rounded-md"
               >
                 Apply Now
