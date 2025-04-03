@@ -37,20 +37,22 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="py-16 text-center"
         >
-          <div className="bg-red-600 text-white py-2 px-4 mb-8 mx-auto max-w-md rounded-md">
+          {/*<div className="bg-red-600 text-white py-2 px-4 mb-8 mx-auto max-w-md rounded-md">
             ADMISSION OPEN FROM 29TH MAY
-          </div>
+          </div>*/}
 
           <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
-            M.Tech (ICT) with specialization
+            M.Tech. in (ICT) (Information
             <br />
-            in Machine Learning
+            and Communication Technology)
           </h1>
 
           <p className="text-lg text-gray-700 mb-10 max-w-3xl mx-auto">
-            Gain insights from expert faculty, enjoy internships, and benefit
-            from great placements. Access top labs, supercomputing, and library
-            resources.
+          The M.Tech (ICT) at DAU equips students for careers in technology, research, and 
+          <br />
+          development. With specialization tracks and advanced coursework, it covers key areas
+          <br />
+          in computing, communication, and system design.
           </p>
 
           <div className="flex justify-center gap-4">
@@ -59,14 +61,6 @@ const HeroSection = () => {
             className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-6 text-lg rounded-md">
               Apply Now
             </Button>
-            <Link href="/learn-more">
-              <Button
-                variant="outline"
-                className="border-blue-700 text-blue-700 hover:bg-blue-50 px-8 py-6 text-lg rounded-md"
-              >
-                Learn More
-              </Button>
-            </Link>
           </div>
         </motion.div>
 
@@ -125,12 +119,13 @@ const HeroSection = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                // Hover animation without delay
                 whileHover={{ scale: 1.05, transition: { duration: 0 } }}
-                className={`${item.bg} ${item.text} p-6 shadow-md rounded-md transition transform duration-300 hover:shadow-lg`}
+                className={`p-6 shadow-md rounded-md transition transform duration-300 hover:shadow-lg bg-gray-100 hover:bg-red-600 group`}
               >
-                <h3 className="text-3xl font-bold">{item.title}</h3>
-                <p className={index === 1 ? "" : "text-gray-600"}>
+                <h3 className="text-3xl font-bold text-black group-hover:text-white">
+                  {item.title}
+                </h3>
+                <p className="text-black group-hover:text-white">
                   {item.subtitle}
                 </p>
               </motion.div>

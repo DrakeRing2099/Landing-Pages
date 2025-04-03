@@ -42,9 +42,6 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="py-16 text-center"
         >
-          <div className="bg-red-600 text-white py-2 px-4 mb-8 mx-auto max-w-md rounded-md">
-            ADMISSION OPEN FROM 23rd MAY
-          </div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
             M.Sc. in IT
@@ -53,12 +50,13 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-lg text-gray-700 mb-10 max-w-3xl mx-auto text-center">
-            Elavate your IT career with DAU's cutting-edge MSc. IT program. This
-            dynamic two-year course fuses innovation, hands-on-labs, and
-            industry-driven learning. Master software development, system
-            design, and analytics while gaining real world experience through a
-            semester-long internship. Get future-ready and thrive in the
-            fast-paced tech world!
+          The MSc (IT) at DAU prepares students for careers in software development, system design, and IT 
+          <br />
+          management. With a strong foundation in theory and hands-on training, it covers modern tools, 
+          <br />
+          programming, and emerging technologies. Industry-aligned coursework and internships ensure 
+          <br />
+          graduates are ready for dynamic IT roles.
           </p>
 
           <div className="flex justify-center gap-4">
@@ -68,14 +66,6 @@ const HeroSection = () => {
             >
               Apply Now
             </Button>
-            <Link href="/learn-more">
-              <Button
-                variant="outline"
-                className="border-blue-700 text-blue-700 hover:bg-blue-50 px-8 py-6 text-lg rounded-md"
-              >
-                Learn More
-              </Button>
-            </Link>
           </div>
         </motion.div>
 
@@ -91,6 +81,7 @@ const HeroSection = () => {
             <img src="./Path.png" alt="Decorative Path" />
           </motion.div>
         </div>
+        
         {/* Animated grid with statistic cards and logo */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
@@ -135,12 +126,13 @@ const HeroSection = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                // Hover animation without delay
                 whileHover={{ scale: 1.05, transition: { duration: 0 } }}
-                className={`${item.bg} ${item.text} p-6 shadow-md rounded-md transition transform duration-300 hover:shadow-lg`}
+                className={`p-6 shadow-md rounded-md transition transform duration-300 hover:shadow-lg bg-gray-100 hover:bg-red-600 group`}
               >
-                <h3 className="text-3xl font-bold">{item.title}</h3>
-                <p className={index === 1 ? "" : "text-gray-600"}>
+                <h3 className="text-3xl font-bold text-black group-hover:text-white">
+                  {item.title}
+                </h3>
+                <p className="text-black group-hover:text-white">
                   {item.subtitle}
                 </p>
               </motion.div>

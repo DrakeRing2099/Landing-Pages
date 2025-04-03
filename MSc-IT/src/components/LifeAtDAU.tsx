@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 // Helper component that fades in its image when src changes
 const FadeImage = ({ src, alt }) => {
@@ -34,6 +34,7 @@ const LifeAtDAU = () => {
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
+  const mobileScrollRef = useRef(null);
 
   const nextImage = () => {
     setCurrentImage((prev) => (prev + 1) % campusImages.length);
@@ -50,6 +51,16 @@ const LifeAtDAU = () => {
     (i) => (currentImage + i) % campusImages.length
   );
 
+  // Scroll mobile container to the current image when it changes
+  useEffect(() => {
+    if (mobileScrollRef.current) {
+      mobileScrollRef.current.scrollTo({
+        left: mobileScrollRef.current.clientWidth * currentImage,
+        behavior: "smooth",
+      });
+    }
+  }, [currentImage]);
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto">
@@ -57,8 +68,7 @@ const LifeAtDAU = () => {
           Life at DAU
         </h2>
         <p className="text-gray-600 text-center mb-12">
-          Instructors around the world teach millions of participants on
-          Neverin. We provide the tools and skills.
+          Experience vibrant campus life at DAU—lush 50-acre greenery, dynamic clubs, fests, and innovation.
         </p>
 
         <div className="relative max-w-4xl mx-auto">
@@ -77,13 +87,17 @@ const LifeAtDAU = () => {
             ))}
           </div>
 
-          {/* Mobile view: show single image */}
+          {/* Mobile view: horizontal scroll of images with snapping */}
           <div className="md:hidden">
-            <div className="h-80 bg-gray-200 rounded-lg overflow-hidden">
-              <FadeImage
-                src={campusImages[currentImage].src}
-                alt={campusImages[currentImage].alt}
-              />
+            <div
+              ref={mobileScrollRef}
+              className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth h-80 bg-gray-200 rounded-lg"
+            >
+              {campusImages.map((image, index) => (
+                <div key={index} className="w-full flex-shrink-0 snap-center">
+                  <FadeImage src={image.src} alt={image.alt} />
+                </div>
+              ))}
             </div>
           </div>
 
