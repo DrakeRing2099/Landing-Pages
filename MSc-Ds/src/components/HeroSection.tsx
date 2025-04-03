@@ -12,15 +12,15 @@ const HeroSection = () => {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      // Close sidebar if open
-      if (isSidebarOpen) {
-        setSidebarOpen(false);
-      }
-
-      // Smooth scroll to the section
-      section.scrollIntoView({ behavior: "smooth" });
+      const navbarHeight = document.querySelector('header')?.offsetHeight || 0;
+      const sectionTop = section.offsetTop - navbarHeight;
+      window.scrollTo({
+        top: sectionTop,
+        behavior: "smooth",
+      });
     }
   };
+
   return (
     <section className="relative bg-white py-12 overflow-hidden">
       {/* WavyCircles remains unanimated */}
