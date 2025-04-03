@@ -146,7 +146,7 @@ const HeroSectionMscDS = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5 }}
-            className="border-gray-100 border hidden md:block"
+            className="hidden md:block"
           >
             <img src="/DAU_Logo.png" alt="DAU Logo" />
           </motion.div>
