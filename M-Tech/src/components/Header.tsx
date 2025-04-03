@@ -28,16 +28,25 @@ const Header = () => {
     setSidebarOpen((prev) => !prev);
   };
 
-  const scrollToSection = (sectionId:string) => {
+  const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
       // Close sidebar if open
       if (isSidebarOpen) {
         setSidebarOpen(false);
       }
-      
-      // Smooth scroll to the section
-      section.scrollIntoView({ behavior: "smooth" });
+
+      // Get the height of the navbar
+      const navbarHeight = document.querySelector('header')?.offsetHeight || 0;
+
+      // Calculate the scroll position
+      const sectionTop = section.offsetTop - navbarHeight;
+
+      // Smooth scroll to the adjusted position
+      window.scrollTo({
+        top: sectionTop,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -178,4 +187,4 @@ const Header = () => {
   );
 };
 
-export default Header;  
+export default Header;
