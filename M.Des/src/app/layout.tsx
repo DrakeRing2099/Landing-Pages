@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
+import ClientBody from "./ClientBody";
 import { ContactFormProvider } from "@/contexts/ContactFormContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Dhirubhai Ambani University",
@@ -18,7 +19,7 @@ export default function RootLayout({
     return (
         <ContactFormProvider>
             <html lang="en">
-                <body className={inter.className}>
+                <body className={dmSans.className} suppressHydrationWarning>
                     {children}
                 </body>
             </html>

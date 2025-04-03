@@ -28,16 +28,25 @@ const Header = () => {
     setSidebarOpen((prev) => !prev);
   };
 
-  const scrollToSection = (sectionId:string) => {
+  const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
       // Close sidebar if open
       if (isSidebarOpen) {
         setSidebarOpen(false);
       }
-      
-      // Smooth scroll to the section
-      section.scrollIntoView({ behavior: "smooth" });
+
+      // Get the height of the navbar
+      const navbarHeight = document.querySelector('header')?.offsetHeight || 0;
+
+      // Calculate the scroll position
+      const sectionTop = section.offsetTop - navbarHeight;
+
+      // Smooth scroll to the adjusted position
+      window.scrollTo({
+        top: sectionTop,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -97,10 +106,10 @@ const Header = () => {
             </button>
           </nav>
             <div className="flex items-center ml-4">
-              <div className="flex flex-col items-center pr-3 border-r-2 border-blue-700">
-                {/*<h2 className="text-red-600 text-xl md:text-3xl italic">25</h2>
-                <h3 className="text-xs md:text-sm">years</h3>*/}
-              </div>
+              {/*<div className="flex flex-col items-center pr-3 border-r-2 border-blue-700">
+                <h2 className="text-red-600 text-xl md:text-3xl italic">25</h2>
+                <h3 className="text-xs md:text-sm">years</h3>
+              </div>*/}
               <div className="pl-3 text-left">
                 <div className="text-blue-900 text-xs md:text-sm">Accredited with</div>
                 <div className="text-amber-500 font-bold text-base md:text-xl">NAAC A+</div>
@@ -178,4 +187,4 @@ const Header = () => {
   );
 };
 
-export default Header;  
+export default Header;
