@@ -30,7 +30,7 @@ const HeroSection = () => {
     };
     
     return (
-      <section className="relative bg-white py-12 overflow-hidden">
+      <section className="relative bg-white  overflow-hidden">
         {/* NetworkBackground remains unanimated */}
         <div className="absolute inset-0" style={{ height: "500px" }}>
           <NetworkBackground />
