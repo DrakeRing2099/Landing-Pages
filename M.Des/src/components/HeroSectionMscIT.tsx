@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import NetworkBackground from "./NetworkBackground";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 
 const HeroSectionMscIT = () => {

@@ -1,25 +1,27 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ClientBody from "./ClientBody";
+import { ContactFormProvider } from "@/contexts/ContactFormContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dhirubhai Ambani University",
-  description: "Formerly known as DA-IICT",
+    title: "Dhirubhai Ambani University",
+    description: "Formerly known as DA-IICT",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        {children}
-      </body>
-    </html>
-  );
+    return (
+        <ContactFormProvider>
+            <html lang="en">
+                <body className={inter.className}>
+                    {children}
+                </body>
+            </html>
+        </ContactFormProvider>
+    );
 }
