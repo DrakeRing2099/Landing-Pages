@@ -9,6 +9,7 @@ interface Point {
   vy: number;
   connections: number[];
   color: string;
+  size: number;
 }
 
 const NetworkBackground = () => {
@@ -55,6 +56,8 @@ const NetworkBackground = () => {
     for (let i = 0; i < pointCount; i++) {
       const randomColor =
         standardColors[Math.floor(Math.random() * standardColors.length)];
+      const randomSize = Math.random() * 2.5 + 1; // Random size between 1.5 and 4
+
       pointsRef.current.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -62,6 +65,7 @@ const NetworkBackground = () => {
         vy: (Math.random() - 0.5) * 0.5,
         connections: [],
         color: randomColor,
+        size: randomSize,
       });
     }
 
@@ -70,12 +74,10 @@ const NetworkBackground = () => {
       const points = pointsRef.current;
       const maxDistance = Math.min(canvas.width, canvas.height) / 5;
 
-      // Reset connections
       points.forEach((point) => {
         point.connections = [];
       });
 
-      // Find connections
       for (let i = 0; i < points.length; i++) {
         for (let j = i + 1; j < points.length; j++) {
           const dx = points[i].x - points[j].x;
@@ -98,7 +100,6 @@ const NetworkBackground = () => {
       const points = pointsRef.current;
       const mouse = mouseRef.current;
 
-      // Update point positions and draw them
       points.forEach((point, i) => {
         // Attraction to mouse
         const dx = mouse.x - point.x;
@@ -125,9 +126,9 @@ const NetworkBackground = () => {
         point.vx *= 0.99;
         point.vy *= 0.99;
 
-        // Draw point
+        // Draw point with its random size
         ctx.beginPath();
-        ctx.arc(point.x, point.y, 2, 0, Math.PI * 2);
+        ctx.arc(point.x, point.y, point.size, 0, Math.PI * 2);
         ctx.fillStyle = point.color;
         ctx.fill();
 
@@ -135,7 +136,6 @@ const NetworkBackground = () => {
         point.connections.forEach((j) => {
           if (j > i) {
             ctx.save();
-            // Set a darker stroke color and shadow for better contrast
             ctx.strokeStyle = "rgba(0, 0, 0, 0.3)";
             ctx.lineWidth = 0.5;
             ctx.shadowColor = "rgba(0, 0, 0, 0.2)";
@@ -149,10 +149,7 @@ const NetworkBackground = () => {
         });
       });
 
-      // Find new connections after moving points
       connectPoints();
-
-      // Continue animation
       animationRef.current = requestAnimationFrame(draw);
     };
 
@@ -165,15 +162,12 @@ const NetworkBackground = () => {
       };
     };
 
-    // Start drawing
     connectPoints();
     animationRef.current = requestAnimationFrame(draw);
     isDrawing.current = true;
 
-    // Add event listeners
     window.addEventListener("mousemove", handleMouseMove);
 
-    // Clean up
     return () => {
       window.removeEventListener("resize", updateCanvasSize);
       window.removeEventListener("mousemove", handleMouseMove);
