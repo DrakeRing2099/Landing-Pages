@@ -166,12 +166,6 @@ const Header = () => {
             Career
           </button>
           <button
-            onClick={() => scrollToSection("top-faculty")}
-            className="text-black hover:text-blue-700 font-medium text-left"
-          >
-            Faculty
-          </button>
-          <button
             onClick={() => scrollToSection("campus-culture")}
             className="text-black hover:text-blue-700 font-medium text-left"
           >
@@ -179,6 +173,12 @@ const Header = () => {
           </button>
           <button
             onClick={() => scrollToSection("contact-form")}
+            className="text-black hover:text-blue-700 font-medium text-left"
+          >
+            Admission Query
+          </button>
+          <button
+            onClick={() => scrollToSection("details")}
             className="text-black hover:text-blue-700 font-medium text-left"
           >
             Contact Us

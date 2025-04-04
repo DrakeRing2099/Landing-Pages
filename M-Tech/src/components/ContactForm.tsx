@@ -19,6 +19,13 @@ interface SubmitMessage {
     isError: boolean;
 }
 
+interface ValidationErrors {
+    name: string;
+    email: string;
+    phone: string;
+    state: string;
+}
+
 const ContactForm = () => {
     const { isPopupOpen, setIsPopupOpen } = useContactFormContext();
     const [formData, setFormData] = useState<FormData>({
@@ -31,6 +38,12 @@ const ContactForm = () => {
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
     const [submitMessage, setSubmitMessage] = useState<SubmitMessage>({ text: '', isError: false });
     const [showConfirmation, setShowConfirmation] = useState<boolean>(false);
+    const [errors, setErrors] = useState<ValidationErrors>({
+        name: '',
+        email: '',
+        phone: '',
+        state: ''
+    });
 
     // Show popup when user visits the site (after a small delay)
     useEffect(() => {
@@ -56,16 +69,75 @@ const ContactForm = () => {
         };
     }, [submitMessage]);
 
+    // Validate form field
+    const validateField = (name: string, value: string): string => {
+        switch (name) {
+            case 'name':
+                if (!value.trim()) return 'Name is required';
+                if (value.trim().length < 3) return 'Name must be at least 3 characters';
+                if (!/^[a-zA-Z\s]+$/.test(value.trim())) return 'Name should contain only letters';
+                return '';
+            
+            case 'email':
+                if (!value.trim()) return 'Email is required';
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())) return 'Please enter a valid email address';
+                return '';
+            
+            case 'phone':
+                if (!value.trim()) return 'Phone number is required';
+                if (!/^\d{10}$/.test(value.replace(/\s/g, ''))) return 'Please enter a valid 10-digit phone number';
+                return '';
+            
+            case 'state':
+                if (!value) return 'Please select your state';
+                return '';
+            
+            default:
+                return '';
+        }
+    };
+
     const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({
             ...prev,
             [name]: value
         }));
+
+        // Validate on change and update errors
+        const errorMessage = validateField(name, value);
+        setErrors(prev => ({
+            ...prev,
+            [name]: errorMessage
+        }));
+    };
+
+    const validateForm = (): boolean => {
+        const newErrors: ValidationErrors = {
+            name: validateField('name', formData.name),
+            email: validateField('email', formData.email),
+            phone: validateField('phone', formData.phone),
+            state: validateField('state', formData.state)
+        };
+
+        setErrors(newErrors);
+        
+        // Check if there are any errors
+        return !Object.values(newErrors).some(error => error !== '');
     };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>, isPopup = false) => {
         e.preventDefault();
+        
+        // First validate the form
+        if (!validateForm()) {
+            setSubmitMessage({ 
+                text: 'Please fix the errors before submitting.', 
+                isError: true 
+            });
+            return;
+        }
+        
         setIsSubmitting(true);
         setSubmitMessage({ text: '', isError: false });
         setShowConfirmation(false);
@@ -121,6 +193,12 @@ const ContactForm = () => {
         }
     };
 
+    const renderErrorMessage = (field: keyof ValidationErrors) => {
+        return errors[field] ? (
+            <p className="text-red-500 text-sm mt-1">{errors[field]}</p>
+        ) : null;
+    };
+
     return (
         <>
             {/* Popup Contact Form */}
@@ -154,9 +232,10 @@ const ContactForm = () => {
                                         value={formData.name}
                                         onChange={handleInputChange}
                                         placeholder="e.g. Ramesh Sharma"
-                                        className="w-full p-3 border rounded-md"
+                                        className={`w-full p-3 border rounded-md ${errors.name ? 'border-red-500' : ''}`}
                                         required
                                     />
+                                    {renderErrorMessage('name')}
                                 </div>
 
                                 <div>
@@ -166,35 +245,39 @@ const ContactForm = () => {
                                         value={formData.email}
                                         onChange={handleInputChange}
                                         placeholder="RameshSharma@Gmail.com"
-                                        className="w-full p-3 border rounded-md"
+                                        className={`w-full p-3 border rounded-md ${errors.email ? 'border-red-500' : ''}`}
                                         required
                                     />
+                                    {renderErrorMessage('email')}
                                 </div>
 
-                                <div className="flex items-center border rounded-md overflow-hidden">
-                                    <select
-                                        className="appearance-none bg-white p-3 text-gray-400 outline-none"
-                                        name="countryCode"
-                                        value={formData.countryCode}
-                                        onChange={handleInputChange}
-                                    >
-                                        <option>INR(+91)</option>
-                                    </select>
-                                    <span className="px-2 text-gray-500">|</span>
-                                    <Input
-                                        type="tel"
-                                        name="phone"
-                                        value={formData.phone}
-                                        onChange={handleInputChange}
-                                        placeholder="12345 67890"
-                                        className="w-full p-3 outline-none"
-                                        required
-                                    />
+                                <div>
+                                    <div className={`flex items-center border rounded-md overflow-hidden ${errors.phone ? 'border-red-500' : ''}`}>
+                                        <select
+                                            className="appearance-none bg-white p-3 text-gray-400 outline-none"
+                                            name="countryCode"
+                                            value={formData.countryCode}
+                                            onChange={handleInputChange}
+                                        >
+                                            <option>INR(+91)</option>
+                                        </select>
+                                        <span className="px-2 text-gray-500">|</span>
+                                        <Input
+                                            type="tel"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleInputChange}
+                                            placeholder="12345 67890"
+                                            className="w-full p-3 outline-none"
+                                            required
+                                        />
+                                    </div>
+                                    {renderErrorMessage('phone')}
                                 </div>
 
                                 <div>
                                     <select
-                                        className="w-full p-3 border rounded-md text-gray-400 bg-white"
+                                        className={`w-full p-3 border rounded-md text-gray-400 bg-white ${errors.state ? 'border-red-500' : ''}`}
                                         name="state"
                                         value={formData.state}
                                         onChange={handleInputChange}
@@ -238,6 +321,7 @@ const ContactForm = () => {
                                         <option>Uttarakhand</option>
                                         <option>West Bengal</option>
                                     </select>
+                                    {renderErrorMessage('state')}
                                 </div>
 
                                 <div className="pt-4">
@@ -300,9 +384,10 @@ const ContactForm = () => {
                                     value={formData.name}
                                     onChange={handleInputChange}
                                     placeholder="e.g. Ramesh Sharma"
-                                    className="w-full p-3 border rounded-md"
+                                    className={`w-full p-3 border rounded-md ${errors.name ? 'border-red-500' : ''}`}
                                     required
                                 />
+                                {renderErrorMessage('name')}
                             </div>
 
                             <div>
@@ -311,36 +396,40 @@ const ContactForm = () => {
                                     name="email"
                                     value={formData.email}
                                     onChange={handleInputChange}
-                                    placeholder="RameshSharma@Gmail.com"
-                                    className="w-full p-3 border rounded-md"
+                                    placeholder="rameshsharma@gmail.com"
+                                    className={`w-full p-3 border rounded-md ${errors.email ? 'border-red-500' : ''}`}
                                     required
                                 />
+                                {renderErrorMessage('email')}
                             </div>
 
-                            <div className="flex items-center border rounded-md overflow-hidden">
-                                <select
-                                    className="appearance-none bg-white p-3 text-gray-400 outline-none"
-                                    name="countryCode"
-                                    value={formData.countryCode}
-                                    onChange={handleInputChange}
-                                >
-                                    <option>INR(+91)</option>
-                                </select>
-                                <span className="px-2 text-gray-500">|</span>
-                                <Input
-                                    type="tel"
-                                    name="phone"
-                                    value={formData.phone}
-                                    onChange={handleInputChange}
-                                    placeholder="12345 67890"
-                                    className="w-full p-3 outline-none"
-                                    required
-                                />
+                            <div>
+                                <div className={`flex items-center border rounded-md overflow-hidden ${errors.phone ? 'border-red-500' : ''}`}>
+                                    <select
+                                        className="appearance-none bg-white p-3 text-gray-400 outline-none"
+                                        name="countryCode"
+                                        value={formData.countryCode}
+                                        onChange={handleInputChange}
+                                    >
+                                        <option>INR(+91)</option>
+                                    </select>
+                                    <span className="px-2 text-gray-500">|</span>
+                                    <Input
+                                        type="tel"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleInputChange}
+                                        placeholder="12345 67890"
+                                        className="w-full p-3 outline-none"
+                                        required
+                                    />
+                                </div>
+                                {renderErrorMessage('phone')}
                             </div>
 
                             <div>
                                 <select
-                                    className="w-full p-3 border rounded-md text-gray-400 bg-white"
+                                    className={`w-full p-3 border rounded-md text-gray-400 bg-white ${errors.state ? 'border-red-500' : ''}`}
                                     name="state"
                                     value={formData.state}
                                     onChange={handleInputChange}
@@ -384,6 +473,7 @@ const ContactForm = () => {
                                     <option>Uttarakhand</option>
                                     <option>West Bengal</option>
                                 </select>
+                                {renderErrorMessage('state')}
                             </div>
 
 
@@ -397,17 +487,6 @@ const ContactForm = () => {
                                 </Button>
                             </div>
                         </form>
-
-                        {/* Button to reopen popup if closed */}
-                        <div className="mt-4 text-center">
-                            <Button
-                                onClick={() => setIsPopupOpen(true)}
-                                variant="outline"
-                                className="text-amber-500 border-amber-500 hover:bg-amber-50"
-                            >
-                                Open Quick Apply Form
-                            </Button>
-                        </div>
                     </div>
                 </div>
             </section>

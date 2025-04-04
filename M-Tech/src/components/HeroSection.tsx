@@ -131,26 +131,26 @@ const HeroSection = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
                         {[
                             {
-                                title: "25 Years",
-                                subtitle: "in Academics",
+                                title: "6 LPA",
+                                subtitle: "Median Salary",
                                 bg: "bg-white",
                                 text: "text-blue-900",
                             },
                             {
-                                title: "80 LPA",
+                                title: "36.44 LPA",
                                 subtitle: "Highest Placement",
                                 bg: "bg-red-600",
                                 text: "text-white",
                             },
                             {
-                                title: "50 Acres",
-                                subtitle: "of campus",
+                                title: "Centre of Excellence",
+                                subtitle: "By Govt. of Gujarat",
                                 bg: "bg-white",
                                 text: "text-blue-900",
                             },
                             {
-                                title: "No. 1",
-                                subtitle: "College for ICT",
+                                title: "5 Star Ranking",
+                                subtitle: "By GSIRF",
                                 bg: "bg-white",
                                 text: "text-blue-900",
                             },
