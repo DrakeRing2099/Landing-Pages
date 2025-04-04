@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import WavyCircles from "./WavyCircles";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useContactFormContext } from "@/contexts/ContactFormContext";
@@ -28,11 +27,7 @@ const HeroSection = () => {
     };
     return (
         <section className="relative bg-white py-12 overflow-hidden">
-            {/* WavyCircles remains unanimated */}
-            <div className="absolute inset-0" style={{ height: "600px" }}>
-                <WavyCircles />
-            </div>
-
+            
             <div className="container mx-auto relative z-10">
                 {/* Animated text content */}
                 <motion.div

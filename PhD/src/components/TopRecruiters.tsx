@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -13,7 +13,7 @@ const topCompanies: Company[] = [
   { name: "Microsoft", logo: "/MicrosoftLogo.png", className: "w-28 h-10" },
   { name: "Google", logo: "/GoogleLogo.png", className: "w-28 h-10" },
   { name: "Amazon", logo: "/AmazonLogo.png", className: "w-28 h-10" },
-  { name: "Flipkart", logo: "/FlipkartLogo.png", className: "w-28 h-10" },
+  { name: "Flipkart", logo: "/FlipKartLogo.png", className: "w-28 h-10" },
   { name: "Airtel", logo: "/AirtelLogo.png", className: "w-28 h-10" },
   { name: "Oracle", logo: "/OracleLogo.png", className: "w-28 h-10" },
   { name: "Atlassian", logo: "/AtlassianLogo.png", className: "w-28 h-10" },
@@ -22,10 +22,13 @@ const topCompanies: Company[] = [
 ];
 
 const TopRecruiters: React.FC = () => {
+  // Duplicate logos for seamless loop
+  const duplicatedCompanies = [...topCompanies, ...topCompanies];
+
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white overflow-hidden">
       <div className="container mx-auto">
-        <h2 className="text-5xl font-bold text-blue-900 text-center mb-4">
+        <h2 className="text-4xl font-bold text-blue-900 text-center mb-4">
           Top Recruiters
         </h2>
         <p className="text-gray-900 text-xl text-center mb-12">
@@ -33,27 +36,31 @@ const TopRecruiters: React.FC = () => {
           placements
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-          {topCompanies.map((company, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }} // delay only in the initial animation
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.3, delay: 0 }, // no delay on hover animation
-              }}
-              className="border rounded-lg p-4 flex items-center justify-center h-24"
-            >
-              <img
-                src={company.logo}
-                alt={company.name}
-                className={`${company.className} object-contain`}
-              />
-            </motion.div>
-          ))}
+        <div className="relative w-full overflow-hidden">
+          <motion.div
+            className="flex gap-12 w-max"
+            initial={{ x: 0 }}
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 20,
+              ease: "linear",
+            }}
+          >
+            {duplicatedCompanies.map((company, index) => (
+              <div
+                key={index}
+                className="min-w-[140px] h-24 flex items-center justify-center border rounded-lg p-4 bg-white shadow-sm"
+              >
+                <img
+                  src={company.logo}
+                  alt={company.name}
+                  className={`${company.className} object-contain`}
+                />
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
