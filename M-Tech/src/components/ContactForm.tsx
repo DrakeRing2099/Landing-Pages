@@ -244,7 +244,7 @@ const ContactForm = () => {
                                         name="email"
                                         value={formData.email}
                                         onChange={handleInputChange}
-                                        placeholder="RameshSharma@Gmail.com"
+                                        placeholder="rameshsharma@gmail.com"
                                         className={`w-full p-3 border rounded-md ${errors.email ? 'border-red-500' : ''}`}
                                         required
                                     />

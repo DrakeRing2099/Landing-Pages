@@ -20,15 +20,15 @@ export default function Home() {
       <section id="top-recruiters">
         <TopRecruiters />
       </section>
-      <section id="placement-stories">
+      {/* <section id="placement-stories">
         <PlacementStories />
-      </section>
-      <section id="success-stories">
+      </section> */}
+      {/* <section id="success-stories">
         <SuccessStories />
-      </section>
-      <section id="top-faculty">
+      </section> */}
+      {/* <section id="top-faculty">
         <TopFaculty />
-      </section>
+      </section> */}
       <section id="campus-culture">
         <CampusCulture />
       </section>
