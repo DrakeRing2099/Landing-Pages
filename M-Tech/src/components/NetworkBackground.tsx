@@ -16,8 +16,6 @@ const NetworkBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const pointsRef = useRef<Point[]>([]);
-  const mouseRef = useRef({ x: 0, y: 0 });
-  const isDrawing = useRef(false);
   const animationRef = useRef<number>(0);
 
   useEffect(() => {
@@ -98,21 +96,11 @@ const NetworkBackground = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const points = pointsRef.current;
-      const mouse = mouseRef.current;
 
       points.forEach((point, i) => {
-        // Attraction to mouse
-        const dx = mouse.x - point.x;
-        const dy = mouse.y - point.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        const maxForceDistance = 200;
-
-        if (distance < maxForceDistance) {
-          const force =
-            ((maxForceDistance - distance) / maxForceDistance) * 0.02;
-          point.vx += dx * force;
-          point.vy += dy * force;
-        }
+        // Minimal floating effect: add small random acceleration
+        point.vx += (Math.random() - 0.5) * 0.01;
+        point.vy += (Math.random() - 0.5) * 0.01;
 
         // Update position
         point.x += point.vx;
@@ -153,26 +141,12 @@ const NetworkBackground = () => {
       animationRef.current = requestAnimationFrame(draw);
     };
 
-    // Mouse move handler
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      mouseRef.current = {
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top,
-      };
-    };
-
     connectPoints();
     animationRef.current = requestAnimationFrame(draw);
-    isDrawing.current = true;
-
-    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       window.removeEventListener("resize", updateCanvasSize);
-      window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(animationRef.current);
-      isDrawing.current = false;
     };
   }, []);
 
