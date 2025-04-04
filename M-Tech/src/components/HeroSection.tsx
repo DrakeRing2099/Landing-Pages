@@ -32,9 +32,9 @@ const HeroSection = () => {
     return (
         <section className="relative bg-white  overflow-hidden">
             {/* NetworkBackground remains unanimated */}
-            <div className="absolute inset-0" style={{ height: "500px" }}>
+            {/* <div className="absolute inset-0" style={{ height: "500px" }}>
                 <NetworkBackground />
-            </div>
+            </div> */}
 
             <div className="container mx-auto relative z-10">
                 {/* Animated text content */}
