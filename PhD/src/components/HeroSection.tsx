@@ -30,7 +30,7 @@ const HeroSection = () => {
     };
 
     return (
-      <section className="relative bg-white py-12 overflow-hidden">
+      <section className="relative bg-white md:py-12 overflow-hidden">
         {/* Shift the background image down by 100px */}
         <div className="absolute left-0 right-0 top-[300px] h-[600px]">
           <Image
@@ -44,7 +44,7 @@ const HeroSection = () => {
         <div className="container mx-auto relative z-10 pb-4 md:mt-16">
           {/* Animated text content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0.5, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5 }}
@@ -79,7 +79,7 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Animated image */}
-          <div className="mt-[100px] md:mt-[300px]">
+          <div className="mt-[300px]">
             <motion.div
               initial={{ opacity: 0.5, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
