@@ -8,13 +8,13 @@ const Footer = () => {
         <div className="mb-8">
           <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
           <div className="space-y-2">
-            <p>DA-IICT, DA-IICT Road,</p>
+            <p>DAU, DA-IICT Road,</p>
             <p>Gandhinagar 382 007, Gujarat</p>
             <p>(India)</p>
-            <p className="pt-4">(+91) 079 - 6826 1700</p>
+            <p className="pt-4">(+91) 079 69 08 08 08</p>
             <p className="text-blue-300 hover:underline">
               <a href="mailto:info[at]daiict[dot]ac[dot]in">
-                info[at]daiict[dot]ac[dot]in
+              info@daiict.ac.in
               </a>
             </p>
           </div>
@@ -24,7 +24,7 @@ const Footer = () => {
           <h3 className="text-xl rel mb-4 md:absolute  md:bottom-20">Follow Us On</h3>
           <div className="flex space-x-4 md:absolute md:bottom-10">
             <Link
-              href="https://twitter.com"
+              href="https://x.com/daiictofficial?t=TuIsOlfI3hNWHdaNT4tt4A&s=09"
               target="_blank"
               className="bg-white p-2 rounded-md"
             >
@@ -40,11 +40,12 @@ const Footer = () => {
                 strokeLinejoin="round"
                 className="text-blue-900"
               >
-                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                <path d="M18 6L6 18" />
+                <path d="M6 6L18 18" />
               </svg>
             </Link>
             <Link
-              href="https://instagram.com"
+              href="https://www.instagram.com/daiictofficial?igsh=dGtkcTFqcGdtNHp0"
               target="_blank"
               className="bg-white p-2 rounded-md"
             >
@@ -66,12 +67,12 @@ const Footer = () => {
               </svg>
             </Link>
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/school/dhirubhai-ambani-institute-of-information-and-communication-technology/"
               target="_blank"
               className="bg-white p-2 rounded-md"
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
+                xmlns="http://www.w3.org/2000/svg"  
                 width="20"
                 height="20"
                 viewBox="0 0 24 24"
@@ -88,7 +89,7 @@ const Footer = () => {
               </svg>
             </Link>
             <Link
-              href="https://youtube.com"
+              href="https://www.facebook.com/DAIICT/"
               target="_blank"
               className="bg-white p-2 rounded-md"
             >
@@ -104,10 +105,10 @@ const Footer = () => {
                 strokeLinejoin="round"
                 className="text-blue-900"
               >
-                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
               </svg>
             </Link>
+
           </div>
         </div>
       </div>

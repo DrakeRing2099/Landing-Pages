@@ -11,16 +11,16 @@ import AboutUs from "@/components/AboutUs";
 import SuccessStories from "@/components/SuccessStories";
 
 export default function Home() {
-  return (
-      <main className="min-h-screen bg-white">
-      <Header />
-      <section id="hero-section">
-        <HeroSection />
-      </section>
-      <section id="top-recruiters">
-        <TopRecruiters />
-      </section>
-      <section id="placement-stories">
+    return (
+        <main className="min-h-screen bg-white">
+            <Header />
+            <section id="hero-section">
+                <HeroSection />
+            </section>
+            <section id="top-recruiters">
+                <TopRecruiters />
+            </section>
+            {/* <section id="placement-stories">
         <PlacementStories />
       </section>
       <section id="success-stories">
@@ -28,20 +28,22 @@ export default function Home() {
       </section>
       <section id="top-faculty">
         <TopFaculty />
-      </section>
-      <section id="campus-culture">
-        <CampusCulture />
-      </section>
-      <section id="life-at-dau">
-        <LifeAtDAU />
-      </section>
-      <section id="about-us">
-        <AboutUs />
-      </section>
-      <section id="contact-form">
-        <ContactForm />
-      </section>
-      <Footer />
-    </main>
-  );
+      </section> */}
+            <section id="campus-culture">
+                <CampusCulture />
+            </section>
+            <section id="life-at-dau">
+                <LifeAtDAU />
+            </section>
+            <section id="about-us">
+                <AboutUs />
+            </section>
+            <section id="contact-form">
+                <ContactForm />
+            </section>
+            <section id="details">
+                <Footer />
+            </section>
+        </main>
+    );
 }
