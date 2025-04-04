@@ -4,9 +4,12 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const campusImages = [
-  { src: "/Campimg1.png", alt: "Campus garden path" },
-  { src: "/Campimg2.png", alt: "Campus walkway" },
-  { src: "/Campimg3.png", alt: "Campus buildings" },
+  { src: "/1.jpg", alt: "Campus garden path" },
+  { src: "/2.jpg", alt: "Campus walkway" },
+  { src: "/3.jpg", alt: "Campus buildings" },
+  { src: "/4.jpg", alt: "Campus buildings" },
+  { src: "/5.jpg", alt: "Campus buildings" },
+  { src: "/6.jpg", alt: "Campus buildings" },
   // Add more if available
 ];
 

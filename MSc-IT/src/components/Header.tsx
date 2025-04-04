@@ -20,8 +20,8 @@ const Header = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleSidebar = () => {
@@ -37,7 +37,7 @@ const Header = () => {
       }
 
       // Get the height of the navbar
-      const navbarHeight = document.querySelector("header")?.offsetHeight || 0;
+      const navbarHeight = document.querySelector('header')?.offsetHeight || 0;
 
       // Calculate the scroll position
       const sectionTop = section.offsetTop - navbarHeight;
@@ -52,11 +52,9 @@ const Header = () => {
 
   return (
     <>
-      <header
-        className={`bg-white p-4 sticky top-0 z-40 transition-shadow duration-300 ${
-          hasScrolled ? "shadow-md" : ""
-        }`}
-      >
+      <header className={`bg-white p-4 sticky top-0 z-40 transition-shadow duration-300 ${
+        hasScrolled ? 'shadow-md' : ''
+      }`}>
         <div className="container mx-auto flex justify-between items-center text-center">
           {/* Left side with logo and accreditation - modified for mobile */}
           <div className="flex items-center justify-between flex-1 md:flex-none">
@@ -69,23 +67,21 @@ const Header = () => {
                 className="mr-2"
               />
             </Link>
-            <div className="w-[1px] h-16 bg-blue-700 mx-4"></div>
+            <div className="w-[1px] h-16 bg-blue-700 mx-4">
+            </div>
             <div className="flex items-center">
               {/*<div className="flex flex-col items-center pr-3 border-r-2 border-blue-700">
                 <h2 className="text-red-600 text-xl md:text-3xl italic">25</h2>
                 <h3 className="text-xs md:text-sm">years</h3>
               </div>*/}
               <div className="pl-3 text-left">
-                <div className="text-blue-900 text-xs md:text-sm">
-                  Accredited with
-                </div>
-                <div className="text-amber-500 font-bold text-base md:text-xl">
-                  NAAC A+
-                </div>
+                <div className="text-blue-900 text-xs md:text-sm">Accredited with</div>
+                <div className="text-amber-500 font-bold text-base md:text-xl">NAAC A+</div>
                 <div className="text-blue-900 text-xs md:text-sm">grade</div>
               </div>
             </div>
             {/* Mobile accreditation - visible on all screens but styled differently */}
+            
           </div>
 
           {/* Desktop Navigation */}
@@ -121,16 +117,16 @@ const Header = () => {
               Contact Us
             </button>
           </nav>
-          {/* Right side image */}
-          <div className="hidden md:block">
-            <Image
-              src="/Frame 180.png"
-              alt="Header graphic"
-              width={120}
-              height={60}
-              className="object-contain"
-            />
-          </div>
+            {/* Right side image */}
+            <div className="hidden md:block">
+                <Image
+                    src="/Frame 180.png"
+                    alt="Header graphic"
+                    width={120}
+                    height={60}
+                    className="object-contain"
+                />
+            </div>
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden">
