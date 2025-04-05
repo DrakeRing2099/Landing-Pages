@@ -90,25 +90,25 @@ const Header = () => {
               onClick={() => scrollToSection("hero-section")}
               className="text-black hover:text-blue-700 font-medium cursor-pointer"
             >
-              Home
+              Admission
             </button>
             <button
               onClick={() => scrollToSection("top-recruiters")}
               className="text-black hover:text-blue-700 font-medium cursor-pointer"
             >
-              Career
-            </button>
-            <button
-              onClick={() => scrollToSection("top-faculty")}
-              className="text-black hover:text-blue-700 font-medium cursor-pointer"
-            >
-              Faculty
+              Careers
             </button>
             <button
               onClick={() => scrollToSection("campus-culture")}
               className="text-black hover:text-blue-700 font-medium cursor-pointer"
             >
               Campus Life
+            </button>
+            <button
+              onClick={() => scrollToSection("life-at-dau")}
+              className="text-black hover:text-blue-700 font-medium cursor-pointer"
+            >
+              Aboud DAU
             </button>
             <button
               onClick={() => scrollToSection("contact-form")}
@@ -157,13 +157,13 @@ const Header = () => {
             onClick={() => scrollToSection("hero-section")}
             className="text-black hover:text-blue-700 font-medium text-left"
           >
-            Home
+            Admission
           </button>
           <button
             onClick={() => scrollToSection("top-recruiters")}
             className="text-black hover:text-blue-700 font-medium text-left"
           >
-            Career
+            Careers
           </button>
           <button
             onClick={() => scrollToSection("campus-culture")}
@@ -172,10 +172,10 @@ const Header = () => {
             Campus Life
           </button>
           <button
-            onClick={() => scrollToSection("contact-form")}
+            onClick={() => scrollToSection("life-at-dau")}
             className="text-black hover:text-blue-700 font-medium text-left"
           >
-            Admission Query
+            About DAU
           </button>
           <button
             onClick={() => scrollToSection("details")}

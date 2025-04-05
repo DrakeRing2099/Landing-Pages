@@ -115,7 +115,7 @@ const HeroSection = () => {
 
                 {/* Animated grid with statistic cards and logo */}
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                    className="grid grid-cols-1 gap-8"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.5 }}
@@ -128,7 +128,7 @@ const HeroSection = () => {
                         hidden: { opacity: 0, y: 20 },
                     }}
                 >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10 w-full">
                         {[
                             {
                                 title: "6 LPA",
@@ -154,11 +154,11 @@ const HeroSection = () => {
                                 bg: "bg-white",
                                 text: "text-blue-900",
                             },
-                        ].map((item, index) => (
+                        ].slice(2,4).map((item, index) => (
                             <motion.div
                                 key={index}
                                 whileHover={{ scale: 1.05, transition: { duration: 0 } }}
-                                className={`p-6 shadow-md rounded-md transition transform duration-300 hover:shadow-lg bg-gray-100 hover:bg-red-600 group`}
+                                className={`p-6 shadow-md rounded-md transition transform duration-300 hover:shadow-lg bg-gray-100 hover:bg-red-600 group col-span-1 w-full`}
                             >
                                 <h3 className="text-3xl font-bold text-black group-hover:text-white">
                                     {item.title}
@@ -171,7 +171,7 @@ const HeroSection = () => {
                     </div>
 
                     {/* Animated DAU Logo */}
-                    <motion.div
+                    {/* <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.5 }}
@@ -179,7 +179,7 @@ const HeroSection = () => {
                         className="hidden md:block"
                     >
                         <img src="/DAU_Logo.png" alt="DAU Logo" />
-                    </motion.div>
+                    </motion.div> */}
                 </motion.div>
             </div>
         </section>
