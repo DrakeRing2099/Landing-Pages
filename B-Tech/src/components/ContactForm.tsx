@@ -175,12 +175,20 @@ const ContactForm = () => {
             // Show confirmation for non-popup form
             if (!isPopup) {
                 setShowConfirmation(true);
-                setTimeout(() => setShowConfirmation(false), 8000);
+                setTimeout(() => {
+                    setShowConfirmation(false);
+                    // Redirect after showing confirmation
+                    window.location.href = "https://www.daiict.ac.in/undergraduate-admissions-all-india-category";
+                }, 2000); // Reduced to 3 seconds before redirect
             }
 
             // Close popup form if needed
             if (isPopup) {
-                setTimeout(() => setIsPopupOpen(false), 2000);
+                setTimeout(() => {
+                    setIsPopupOpen(false);
+                    // Redirect after closing popup
+                    window.location.href = "https://www.daiict.ac.in/undergraduate-admissions-all-india-category";
+                }, 2000);
             }
         } catch (error) {
             console.error("Form submission error:", error);
