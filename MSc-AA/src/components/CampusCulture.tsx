@@ -4,8 +4,8 @@ import Image from "next/legacy/image";
 const CampusCulture = () => {
   return (
     <section className="py-16 bg-white">
-      <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row gap-12">
+      <div className="container mx-auto ">
+        <div className="flex md:flex-row gap-12  flex-col items-center justify-center" >
           <div className="md:w-1/2">
             <h2 className="text-3xl font-bold text-blue-900 mb-8">
               Campus Culture
@@ -21,17 +21,6 @@ const CampusCulture = () => {
             <p className="text-gray-700">
             With top-notch facilities and lively festivals, Dhirubhai Ambani University nurtures friendships, leadership, and personal growth in a welcoming environment.
             </p>
-          </div>
-          <div className="md:w-1/2">
-            <div className="relative h-96 w-full rounded-md overflow-hidden">
-              <Image
-                src="/CampusMap.jpg"
-                alt="Campus Map"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-md"
-              />
-            </div>
           </div>
         </div>
       </div>

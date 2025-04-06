@@ -4,23 +4,30 @@ const AboutUs = () => {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row gap-12">
+        <div className="flex flex-col md:flex-row md:items-center gap-12">
+          {/* Left side: Text */}
           <div className="md:w-2/3">
-            <h2 className="text-3xl font-bold text-blue-900 mb-8">About Dhirubhai Ambani University</h2>
+            <h2 className="text-3xl font-bold text-blue-900 mb-8">
+              About Dhirubhai Ambani University
+            </h2>
             <p className="text-gray-700 mb-4">
-              Founded in 2000, DA-IICT has been a pioneer in ICT education and research. With expert faculty and a strong curriculum, it has shaped future-ready professionals for over two decades.
+            Dhirubhai Ambani University  offers a vibrant campus culture where academics and extracurriculars thrive. Student-led clubs, technical fests, and cultural events foster creativity and collaboration.
             </p>
             <p className="text-gray-700 mb-4">
-              Recognized under Gujarat Legislature Act No. 6 of 2003, DA-IICT earned NAAC A+ accreditation in 2023. In 2024, it became Dhirubhai Ambani University, expanding into law, management, and emerging fields.
+            From music and dance to robotics and coding, Dhirubhai Ambani University ensures every student finds their passion. Workshops, hackathons, and sports tournaments keep the campus dynamic.
             </p>
             <p className="text-gray-700">
-              DAU fosters innovation, excellence, and industry relevance. Named a Centre of Excellence and Nodal Institute, it has produced accomplished alumni and offers strong scholarships, a dynamic campus, and future-focused programs.
+            With top-notch facilities and lively festivals, Dhirubhai Ambani University nurtures friendships, leadership, and personal growth in a welcoming environment.
             </p>
           </div>
-          <div className="md:w-1/3 relative min-h-[300px] hidden md:block">
-            <div className="relative w-full h-full ">
-              <img src="./DAU_Logo.png" alt="DAU Logo" />
-            </div>
+
+          {/* Right side: Image */}
+          <div className="md:w-3/5">
+            <img
+              src="/Aerial View-01.jpg"
+              alt="DAU Aerial View"
+              className="w-full md:h-[400px] rounded-[16px] border-2 border-[#E7E7E7]"
+            />
           </div>
         </div>
       </div>
