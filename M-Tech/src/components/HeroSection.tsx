@@ -56,10 +56,10 @@ const HeroSection = () => {
                         The M.Tech (ICT) at DAU equips students for careers in technology,
                         research, and
                         <br />
-                        development. With specialization tracks and advanced coursework,
-                        it covers key areas
+                        innovation. With specialization tracks and advanced coursework,
+                        it covers key areas in
                         <br />
-                        in computing, communication, and system design.
+                        computing, communication, and system design.
                     </p>
 
                     <div className="flex justify-center gap-4">

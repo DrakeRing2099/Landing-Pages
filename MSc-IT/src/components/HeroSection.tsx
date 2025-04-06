@@ -56,10 +56,10 @@ const HeroSection = () => {
                     </h1>
 
                     <p className="text-lg text-gray-700 mb-10 max-w-3xl mx-auto text-center">
-                        The MSc (IT) at DAU prepares students for careers in software development, system design, and IT
-                        management. With a strong foundation in theory and hands-on training, it covers modern tools,
-                        programming, and emerging technologies. Industry-aligned coursework and internships ensure
-                        graduates are ready for dynamic IT roles.
+                    The M.Sc. (Information Technology) at DAU prepares students for careers in software development, 
+                    system design, and analysis. With a curriculum grounded in theory and enriched with the latest 
+                    technologies, the program emphasizes hands-on learning, internships, and electives like Python, 
+                    DevOps, and Blockchain to build real-world problem-solving skills.
                     </p>
 
                     <div className="flex justify-center gap-4">

@@ -57,17 +57,17 @@ const HeroSection = () => {
                     </h1>
 
                     <p className="text-lg text-gray-700 mb-10 max-w-3xl mx-auto text-center">
-                        Transforming ideas into powerful designs with DAU's M.Des in
-                        Communication Design!
-                        <br />
-                        This cutting-edge two-year program fuses visual story telling,
-                        UI/UX, interaction,
-                        <br />
-                        and immersive design with technology and social impact.
-                        <br />
-                        Master multimedia, strategy, and innovation to create.
-                        <br />
-                        meaningful experiences across diverse industries.
+                    The MDes at DAU is a two-year interdisciplinary program that blends technology, 
+                    <br />
+                    design, and strategy. With specializations in Communication Design and 
+                    <br />
+                    Interaction & User Experience Design (IUXD), it emphasizes hands-on projects, 
+                    <br />
+                    human-centered thinking, and emerging fields like UI/UX, motion graphics, and 
+                    <br />
+                    immersive media, preparing students for impactful careers in design and 
+                    <br />
+                    innovation.
                     </p>
 
                     <div className="flex justify-center gap-4">

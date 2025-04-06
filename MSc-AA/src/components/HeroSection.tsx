@@ -57,14 +57,11 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-lg text-gray-700 mb-10 max-w-3xl mx-auto text-center">
-              Data-Driven Farming for the Future
-              <br />
-              Offered by DAU, AAU, and IIRS-ISRO, this program blends AI, IoT,
-              and GIS with
-              <br />
-              agriculture, equipping students with industry-certified skills to
-              <br />
-              drive precision farming and smart decision-making.
+            The MSc (Agriculture Analytics) at DAU prepares students to lead in data-driven 
+            <br />
+            agriculture. With Python, machine learning, geospatial tools, and data forecasting, the 
+            <br />
+            program enables smart, tech-driven solutions for modern farming challenges.
             </p>
 
             <div className="flex justify-center gap-4">
