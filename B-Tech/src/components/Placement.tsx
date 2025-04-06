@@ -25,14 +25,14 @@ const Placement: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:col-span-2">
                         {[
                             {
-                                title: "50 Acres",
-                                subtitle: "of campus",
+                                title: "13 LPA",
+                                subtitle: "Median Placement",
                                 bg: "bg-white",
                                 text: "text-blue-900",
                             },
                             {
-                                title: "No. 1",
-                                subtitle: "College for ICT",
+                                title: "53 LPA",
+                                subtitle: "Highest Placement",
                                 bg: "bg-red-600",
                                 text: "text-white",
                             },

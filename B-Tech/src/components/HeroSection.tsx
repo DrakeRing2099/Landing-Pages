@@ -50,16 +50,15 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-lg text-black mb-10 max-w-3xl mx-auto">
-              Unlock your potential with DAU’s B.Tech program.
-              <br />
-              Our unique culture fosters innovation, and students work on
-              projects
-              <br />
-              aligned with industry standards, ensuring you gain hands-on
-              <br />
-              experience and skills that are in high demand.
-              <br />
-              Prepare for success in the rapidly evolving tech landscape.
+            The B.Tech program at DAU equips students with the skills and mindset to excel in 
+            <br />
+            technology-driven careers. With industry-focused coursework, hands-on projects, and 
+            <br />
+            exposure to emerging tools, graduates are prepared for diverse roles in engineering, 
+            <br />
+            design, and research. A vibrant campus culture, active student communities, and tech-
+            <br />
+            focused events foster collaboration, creativity, and personal growth.
             </p>
 
             <div className="flex justify-center gap-4">
@@ -144,14 +143,14 @@ const HeroSection = () => {
                                 text: "text-blue-900",
                             },
                             {
-                                title: "25 Years",
-                                subtitle: "in Academics",
+                                title: "Center of Excellence",
+                                subtitle: "By Govt. of Gujarat",
                                 bg: "bg-white",
                                 text: "text-blue-900",
                             },
                             {
-                                title: "80 LPA",
-                                subtitle: "Highest Placement",
+                                title: "5 Star Ranking",
+                                subtitle: "by GSIRF",
                                 bg: "bg-red-600",
                                 text: "text-white",
                             },

@@ -48,12 +48,13 @@ const HeroSection = () => {
                     </h1>
 
                     <p className="text-lg text-gray-700 mb-10 max-w-3xl mx-auto">
-                        The MSc(Data Science) at DAU prepares students for data-driven
-                        decision-making across industries. With a strong foundation in
-                        statistics,computing, and AI, it blends theory with practical
-                        experience through projects and internships, equipping graduates for
-                        careers in data analytics, machine learning, and buisness
-                        intelligence
+                    The MSc (Data Science) at DAU offers a strong theoretical foundation in data science, enabling 
+                    
+                    students to develop analytical and problem-solving skills. With hands-on learning through projects 
+                    
+                    and assignments, the program equips graduates to apply tools like Python, machine learning, and 
+                
+                    forecasting in real-world scenarios across industries.
                     </p>
 
                     <div className="flex justify-center gap-4">
@@ -95,26 +96,26 @@ const HeroSection = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
                         {[
                             {
-                                title: "25 Years",
-                                subtitle: "in Academics",
+                                title: "Centre of Excellence",
+                                subtitle: "By Govt. of Gujarat",
                                 bg: "bg-white",
                                 text: "text-blue-900",
                             },
                             {
-                                title: "80 LPA",
+                                title: "5 Star Ranking",
                                 subtitle: "Highest Placement",
                                 bg: "bg-red-600",
                                 text: "text-white",
                             },
                             {
-                                title: "50 Acres",
-                                subtitle: "of campus",
+                                title: "5 LPA",
+                                subtitle: "Median Placement",
                                 bg: "bg-white",
                                 text: "text-blue-900",
                             },
                             {
-                                title: "No. 1",
-                                subtitle: "College for ICT",
+                                title: "14 LPA",
+                                subtitle: "Highest Placement",
                                 bg: "bg-white",
                                 text: "text-blue-900",
                             },
