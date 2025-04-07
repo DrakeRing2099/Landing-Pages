@@ -9,6 +9,7 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import AboutUs from "@/components/AboutUs";
 import SuccessStories from "@/components/SuccessStories";
+import Placement from "@/components/Placement";
 
 export default function Home() {
     return (
@@ -20,6 +21,9 @@ export default function Home() {
             <section id="top-recruiters">
                 <TopRecruiters />
             </section>
+            <section id="placement">
+                <Placement />
+            </section>
             {/* <section id="placement-stories">
         <PlacementStories />
       </section>
@@ -29,11 +33,11 @@ export default function Home() {
       <section id="top-faculty">
         <TopFaculty />
       </section> */}
-            <section id="campus-culture">
-                <CampusCulture />
-            </section>
             <section id="life-at-dau">
                 <LifeAtDAU />
+            </section>
+            <section id="campus-culture">
+                <CampusCulture />
             </section>
             <section id="about-us">
                 <AboutUs />

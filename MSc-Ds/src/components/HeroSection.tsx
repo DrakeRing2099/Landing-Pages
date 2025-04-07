@@ -42,13 +42,13 @@ const HeroSection = () => {
           </div>*/}
 
                     <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
-                        M.Sc in DS
+                        M.Sc. in DS
                         <br />
                         (Data Science)
                     </h1>
 
                     <p className="text-lg text-gray-700 mb-10 max-w-3xl mx-auto">
-                    The MSc (Data Science) at DAU offers a strong theoretical foundation in data science, enabling 
+                    The M.Sc. (Data Science) at DAU offers a strong theoretical foundation in data science, enabling 
                     
                     students to develop analytical and problem-solving skills. With hands-on learning through projects 
                     
@@ -78,9 +78,9 @@ const HeroSection = () => {
                     <img src="./Path.png" alt="Decorative Path" />
                 </motion.div>
 
-                {/* Animated grid with statistic cards and logo */}
-                <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                 {/* Animated grid with statistic cards and logo */}
+                 <motion.div
+                    className="grid grid-cols-1 gap-8"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.5 }}
@@ -93,8 +93,20 @@ const HeroSection = () => {
                         hidden: { opacity: 0, y: 20 },
                     }}
                 >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10 w-full">
                         {[
+                            {
+                                title: "6 LPA",
+                                subtitle: "Median Salary",
+                                bg: "bg-white",
+                                text: "text-blue-900",
+                            },
+                            {
+                                title: "36.44 LPA",
+                                subtitle: "Highest Placement",
+                                bg: "bg-red-600",
+                                text: "text-white",
+                            },
                             {
                                 title: "Centre of Excellence",
                                 subtitle: "By Govt. of Gujarat",
@@ -103,27 +115,15 @@ const HeroSection = () => {
                             },
                             {
                                 title: "5 Star Ranking",
-                                subtitle: "Highest Placement",
-                                bg: "bg-red-600",
-                                text: "text-white",
-                            },
-                            {
-                                title: "5 LPA",
-                                subtitle: "Median Placement",
+                                subtitle: "By GSIRF",
                                 bg: "bg-white",
                                 text: "text-blue-900",
                             },
-                            {
-                                title: "14 LPA",
-                                subtitle: "Highest Placement",
-                                bg: "bg-white",
-                                text: "text-blue-900",
-                            },
-                        ].map((item, index) => (
+                        ].slice(2,4).map((item, index) => (
                             <motion.div
                                 key={index}
                                 whileHover={{ scale: 1.05, transition: { duration: 0 } }}
-                                className={`p-6 shadow-md rounded-md transition transform duration-300 hover:shadow-lg bg-gray-100 hover:bg-red-600 group`}
+                                className={`p-6 shadow-md rounded-md transition transform duration-300 hover:shadow-lg bg-gray-100 hover:bg-red-600 group col-span-1 w-full`}
                             >
                                 <h3 className="text-3xl font-bold text-black group-hover:text-white">
                                     {item.title}
@@ -136,15 +136,15 @@ const HeroSection = () => {
                     </div>
 
                     {/* Animated DAU Logo */}
-                    <motion.div
+                    {/* <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.5 }}
                         transition={{ duration: 0.5 }}
-                        className="border-gray-100 border hidden md:block"
+                        className="hidden md:block"
                     >
                         <img src="/DAU_Logo.png" alt="DAU Logo" />
-                    </motion.div>
+                    </motion.div> */}
                 </motion.div>
             </div>
         </section>

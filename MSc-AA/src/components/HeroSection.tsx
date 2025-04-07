@@ -57,7 +57,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-lg text-gray-700 mb-10 max-w-3xl mx-auto text-center">
-            The MSc (Agriculture Analytics) at DAU prepares students to lead in data-driven 
+            The M.Sc. (Agriculture Analytics) at DAU prepares students to lead in data-driven 
             <br />
             agriculture. With Python, machine learning, geospatial tools, and data forecasting, the 
             <br />
