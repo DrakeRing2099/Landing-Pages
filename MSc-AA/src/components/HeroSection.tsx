@@ -57,11 +57,14 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-lg text-gray-700 mb-10 max-w-3xl mx-auto text-center">
-            The M.Sc. (Agriculture Analytics) at DAU prepares students to lead in data-driven 
-            <br />
-            agriculture. With Python, machine learning, geospatial tools, and data forecasting, the 
-            <br />
-            program enables smart, tech-driven solutions for modern farming challenges.
+              The M.Sc. (Agriculture Analytics) at DAU prepares students to lead
+              in data-driven
+              <br />
+              agriculture. With Python, machine learning, geospatial tools, and
+              data forecasting, the
+              <br />
+              program enables smart, tech-driven solutions for modern farming
+              challenges.
             </p>
 
             <div className="flex justify-center gap-4">
@@ -89,7 +92,7 @@ const HeroSection = () => {
 
           {/* Animated grid with statistic cards and logo */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="grid grid-cols-1 px-4"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
@@ -102,29 +105,17 @@ const HeroSection = () => {
               hidden: { opacity: 0, y: 20 },
             }}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-32 mt-10 max-w-6xl mx-auto w-full">
               {[
                 {
-                  title: "25 Years",
-                  subtitle: "in Academics",
+                  title: "Centre of Excellence",
+                  subtitle: "By Govt. of Gujarat",
                   bg: "bg-white",
                   text: "text-blue-900",
                 },
                 {
-                  title: "80 LPA",
-                  subtitle: "Highest Placement",
-                  bg: "bg-red-600",
-                  text: "text-white",
-                },
-                {
-                  title: "50 Acres",
-                  subtitle: "of campus",
-                  bg: "bg-white",
-                  text: "text-blue-900",
-                },
-                {
-                  title: "No. 1",
-                  subtitle: "College for ICT",
+                  title: "5 Star Ranking",
+                  subtitle: "By GSIRF",
                   bg: "bg-white",
                   text: "text-blue-900",
                 },
@@ -132,7 +123,7 @@ const HeroSection = () => {
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.05, transition: { duration: 0 } }}
-                  className={`p-6 shadow-md rounded-md transition transform duration-300 hover:shadow-lg bg-gray-100 hover:bg-red-600 group`}
+                  className={`p-6 shadow-md w-full max-w-md rounded-md transition-transform duration-300 hover:shadow-lg bg-gray-100 hover:bg-red-600 group mx-auto`}
                 >
                   <h3 className="text-3xl font-bold text-black group-hover:text-white">
                     {item.title}
@@ -143,17 +134,45 @@ const HeroSection = () => {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
 
-            {/* Animated DAU Logo */}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 px-4 md:px-8 max-w-6xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={{
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { staggerChildren: 0.1, duration: 0.5 },
+              },
+              hidden: { opacity: 0, y: 20 },
+            }}
+          >
+            {/* Rectangular 5 LPA section */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.5 }}
-              className=" hidden md:block"
+              whileHover={{ scale: 1.05, transition: { duration: 0 } }}
+              className="px-6 py-6 w-full max-w-md h-full md:h-[50%] md:my-auto shadow-md rounded-md transition-transform duration-300 hover:shadow-lg bg-gray-100 hover:bg-red-600 group mx-auto"
             >
-              <img src="/DAU_Logo.png" alt="DAU Logo" />
+              <h3 className="text-3xl font-bold text-black group-hover:text-white">
+                5 LPA
+              </h3>
+              <p className="text-black group-hover:text-white">
+                Median Placement
+              </p>
             </motion.div>
+
+            {/* Square image container */}
+            <div className="relative w-full max-w-md h-64 mx-auto">
+              <Image
+                src="/with placement.png"
+                alt="With Placement"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-md"
+              />
+            </div>
           </motion.div>
         </div>
       </section>
